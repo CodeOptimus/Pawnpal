@@ -2,6 +2,7 @@
 import cart_icon from './cart-icon.png'
 import search_icon from './search-icon (2).png'
 import question_icon from './question-icon.png'
+import telephone_icon from './telephone-icon.png'
 
 
 // Hero images
@@ -37,13 +38,14 @@ import sponsor_9 from './osram-vector-logo 1.png'
 // Social media icons
 import facebook_icon from './facebook-icon.png'
 import instagram_icon from './insta-icon.png'
-import ticktok_icon from './ticktok_icon'
-import x_icon from './x_icon'
+import ticktok_icon from './tictok-icon.png'
+import x_icon from './x-icon.png'
 
-export const assest = {
+export const assets = {
     cart_icon,
     search_icon,
     question_icon,
+    telephone_icon,
     hero_1,
     hero_2,
     hero_3,

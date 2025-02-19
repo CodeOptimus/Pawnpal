@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #CBC8C8;
+    padding: 1rem 3rem;
+}
+
+.header .logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo-area .logo {
+    font-weight: 700;
+}
+
+.theme {
+    margin-right: .8rem;
+}
+
+.header .cto {
+    display: flex;
+    align-items: center;
+}

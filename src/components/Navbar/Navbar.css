@@ -1,4 +1,4 @@
-.header {
+.header .header-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -6,12 +6,12 @@
     padding: 1rem 3rem;
 }
 
-.header .logo-area {
+.header .header-top .logo-area {
     display: flex;
     align-items: center;
 }
 
-.header .logo-area .logo {
+.header .header-top .logo-area .logo {
     font-weight: 700;
 }
 
@@ -19,7 +19,7 @@
     margin-right: .8rem;
 }
 
-.header .cto {
+.header .header-top .cto {
     display: flex;
     align-items: center;
 }

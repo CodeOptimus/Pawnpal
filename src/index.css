@@ -3,10 +3,11 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  font-family: "Inter", serif;
 }
 
 :root {
-  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-family: Inter, sans-serif;
   --line-height: 1.5;
   --theme-color: #FE6C2C;
   --gen-color-1: #000000;
@@ -21,4 +22,7 @@ a {
   text-decoration: none;
 }
 
-
+button {
+  cursor: pointer;
+  border: none;
+}

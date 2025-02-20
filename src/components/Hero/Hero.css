@@ -28,7 +28,7 @@ li{
 
 .item-list ul li a:hover{
     color: var(--theme-color);
-    text-decoration: underline;
+    /* text-decoration: underline; */
     transition: all .2s ease-in-out;
 }
 

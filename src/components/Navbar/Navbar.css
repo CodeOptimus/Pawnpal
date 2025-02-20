@@ -30,6 +30,7 @@
 .header .header-top .cto {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 
@@ -68,10 +69,12 @@
 }
 
 .header-main .search-box .btn-search {
+    cursor: pointer;
     margin-left: -135px;
 }
 
 .header-main .search-box .btn-login {
+    cursor: pointer;
     margin-left: 40px;
 }
 
@@ -87,14 +90,15 @@
     padding-left: 40px;
 }
 
-.header-main .help {
+.header-main .container .ask-help {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     cursor: pointer;
 }
 
-.header-main .help .question_mark,
+.header-main .ask-help .question_mark,
 .dropdown_icon {
     height: 18.75px;
     width: 18.75px;
@@ -103,7 +107,12 @@
 
 .header .cart {
     display: flex;
+    align-items: center;
     gap: 10px;
+}
+
+.header .cart:hover {
+    color: var(--theme-color)
 }
 
 
@@ -112,3 +121,14 @@
     width: 24px;
     cursor: pointer;
 }
+
+
+
+
+/* responsiveness */
+
+@media (min-width: 320px) and (max-width: 480px) {
+   
+   
+    
+  }

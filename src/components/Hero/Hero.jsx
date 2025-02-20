@@ -4,7 +4,8 @@ import "./Hero.css";
 function Hero() {
   return (
     <>
-      <div className="item-list">
+      <div className="hero">
+        <div className="item-list">
         <ul>
           <li>
             <a href="#">Phone & Tablets</a>
@@ -39,10 +40,14 @@ function Hero() {
           <li>
             <a href="#">Polytank</a>
           </li>
+          <li>
+            <a href="#">More items</a>
+          </li>
         </ul>
+        </div>
       </div>
 
-      <div className="hero"></div>
+      <div className="hero-images"></div>
     </>
   );
 }

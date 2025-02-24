@@ -1,40 +1,48 @@
 .item-list{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    max-width: 1200px;
-    margin-top: 12rem;   
+    margin-top: 10rem;
 }
 
 ul{
     display: flex;
     flex-direction: row;
+    width: 1318px;
     justify-content: space-between;
     list-style-type: none;
     gap: 50px;
     padding: 1rem 3rem 5rem 3rem;
     text-wrap: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
-li{
-    color: var(--gen-color-2);
-    cursor: pointer;
+ul li{
+    display: inline-block;
 }
 
-li:hover{
+ul li a{
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+ul li:hover{
     color: var(--theme-color);
 }
 
 .hero {
-    height: 34vw;
+    height: 24vw;
     width: 1318px;
-    /* background: url("../../../public/header_img.png") no-repeat; */
-    background-color: var(--theme-color);
+    margin: 10px auto;
+    margin-top: -40px;
+    background: url("../../assets/BANNER1.png") no-repeat center;
     background-size: contain;
-    background-position: center;
     position: relative;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-left: auto;
-    margin-right: auto;
+}
+
+
+/* media queries */
+@media (max-width: 1050px){
+   
 }

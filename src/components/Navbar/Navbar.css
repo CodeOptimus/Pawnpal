@@ -41,14 +41,8 @@
     background-color: var(--gen-color-2);
     padding: 1rem 3rem;
     box-shadow: 0px 5px 10px 0px #00000040;
-
 }
 
-.header-main .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
 .header-main .search-box input {
     height: 41px;
@@ -65,6 +59,15 @@
     border-radius: 5px;
     color: var(--gen-color-2);
     border: none;
+}
+
+.header-main .buttons{
+    margin-top: -41px;
+    margin-left: 41.6rem;
+}
+
+.header-main .container .search-box .search_icon{
+    margin-top: 10px;
 }
 
 .header-main .search-box .btn-search {
@@ -94,6 +97,12 @@
     cursor: pointer;
 }
 
+.header-main .help .help-container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
 .header-main .help .question_mark,
 .dropdown_icon {
     height: 18.75px;
@@ -111,4 +120,49 @@
     height: 24px;
     width: 24px;
     cursor: pointer;
+}
+
+/* media queries */
+
+@media(max-width:1050px) {
+    .header-top {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .header-main .search-box{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-main .buttons{
+        margin-left: 12.5rem;
+        margin-top: 1rem;
+    }
+
+    .header-main .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-main .container .search-box .search_icon{
+        margin-top: 25px;
+    }
+
+
+    .header-main .search-box input {
+        height: 41px;
+        width: 435px;
+        margin-top: 1rem;
+    }
+
+    .header-main .help-container{
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    
 }

@@ -1,8 +1,28 @@
 // Icon imports
 import cart_icon from './cart-icon.png'
-import search_icon from './search-icon (2).png'
-import question_icon from './question-icon.png'
-import telephone_icon from './telephone-icon.png'
+import searchIcon from './search-icon.png'
+import questionMark from './question-mark.png'
+import telephoneIcon from './telephone-icon.png'
+import dropdownIcon from './dropdown-icon.png'
+import dropdownIconBlack from './dropdown.png'
+
+// Category images
+import Phone from "./Phone.png";
+import Watch from "./Watches.png";
+import Furniture from "./Furniture.png";
+import Laptop from "./Laptop.png";
+import Shoes from "./Shoes.png";
+import Electronics from "./Electronics.png";
+import Bags from "./Bags.png";
+import Accessories from "./Accessories.png";
+import FlashIcon from "./Flash-icon.png";
+import DropdownIcon from "./Dropdown-icon.png";
+import WatchBlueBg from "./Watch-blue-bg.png";
+import Sneaker from "./Sneaker.png";
+import InfinixPhone from "./Infinix-phone.png";
+import Mac from "./Mac.png";
+import Headphones from "./Headphones.png";
+
 
 
 // Hero images
@@ -43,9 +63,11 @@ import x_icon from './x-icon.png'
 
 export const assets = {
     cart_icon,
-    search_icon,
-    question_icon,
-    telephone_icon,
+    searchIcon,
+    questionMark,
+    telephoneIcon,
+    dropdownIcon,
+    dropdownIconBlack,
     hero_1,
     hero_2,
     hero_3,
@@ -69,5 +91,20 @@ export const assets = {
     facebook_icon,
     instagram_icon,
     ticktok_icon,
-    x_icon
+    x_icon,
+    Phone,
+    Watch,
+    Furniture,
+    Laptop,
+    Shoes,
+    Electronics,
+    Bags,
+    Accessories,
+    FlashIcon,
+    DropdownIcon,
+    WatchBlueBg,
+    Sneaker,
+    InfinixPhone,
+    Mac,
+    Headphones 
 }

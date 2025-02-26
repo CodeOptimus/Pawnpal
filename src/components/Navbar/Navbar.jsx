@@ -1,9 +1,5 @@
 import "./Navbar.css";
-import telephoneIcon from "../../assets/telephone-icon.png";
-import questionMark from "../../assets/question-mark.png";
-import dropdownIcon from "../../assets/dropdown.png";
-import searchIcon from "../../assets/search-icon.png";
-import cartIcon from "../../assets/cart-icon.png";
+import { assets } from "../../assets/assets";
 
 function Navbar() {
   return (
@@ -14,7 +10,11 @@ function Navbar() {
           <span>Sell on PawnPal</span>
         </div>
         <div className="cto">
-          <img src={telephoneIcon} alt="telephone-icon" className="theme" />
+          <img
+            src={assets.telephoneIcon}
+            alt="telephone-icon"
+            className="theme"
+          />
           <span>Call to Order</span>
         </div>
         <div className="tease">
@@ -31,20 +31,27 @@ function Navbar() {
           </div>
 
           <div className="search-box">
-            <img src={searchIcon} alt="search-icon" className="search_icon" />
+            <img
+              src={assets.searchIcon}
+              alt="search-icon"
+              className="search_icon"
+            />
             <input
               type="text"
               placeholder="Search products..."
               className="search_box"
             />
-            <button className="btn-search">Search</button>
-            <button className="btn-login">Login</button>
+            <div className="buttons">
+              <button className="btn-search">Search</button>
+              <button className="btn-login">Login</button>
+            </div>
           </div>
 
           <div className="help">
+            <div className="help-container">
             <div className="question-mark">
               <img
-                src={questionMark}
+                src={assets.questionMark}
                 alt="question-mark"
                 className="question_mark"
               />
@@ -54,17 +61,20 @@ function Navbar() {
             </div>
             <div className="dropdown-icon">
               <img
-                src={dropdownIcon}
+                src={assets.dropdownIconBlack}
                 alt="dropdown-icon"
                 className="dropdown_icon"
               />
             </div>
-          </div>
 
-          <div className="cart">
-            <img src={cartIcon} alt="cart-icon" className="cart_icon" />
+            <div className="cart">
+            <img src={assets.cart_icon} alt="cart-icon" className="cart_icon" />
             <span>Cart</span>
           </div>
+            </div>
+          </div>
+
+          
         </div>
       </div>
     </header>

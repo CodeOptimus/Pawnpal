@@ -5,7 +5,6 @@
 ul{
     display: flex;
     flex-direction: row;
-    width: 1318px;
     justify-content: space-between;
     list-style-type: none;
     gap: 50px;
@@ -32,7 +31,6 @@ ul li:hover{
 
 .hero {
     height: 24vw;
-    width: 1318px;
     margin: 10px auto;
     margin-top: -40px;
     background: url("../../assets/BANNER1.png") no-repeat center;
@@ -44,5 +42,18 @@ ul li:hover{
 
 /* media queries */
 @media (max-width: 1050px){
+
+    .item-list{
+        margin-top: 22rem;
+        max-width: 45%;
+    }
+
+    ul {
+        gap: 15px;
+        display: grid;
+        grid-template-columns: 10px 10px 10px 10px;
+        grid-column-gap: 8rem;
+    }
+
    
 }

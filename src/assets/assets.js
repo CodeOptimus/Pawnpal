@@ -29,6 +29,7 @@ import Headphones from "./Headphones.png";
 import hero_1 from './Hero-1.png'
 import hero_2 from './Hero-2.png'
 import hero_3 from './Hero-3.png'
+import hero_4 from './HeroImg.jpg'
 
 
 
@@ -71,6 +72,7 @@ export const assets = {
     hero_1,
     hero_2,
     hero_3,
+    hero_4,
     testimony_0,
     testimony_1,
     testimony_2,

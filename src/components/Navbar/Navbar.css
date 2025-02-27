@@ -30,7 +30,6 @@
 .header .header-top .cto {
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 
 
@@ -72,12 +71,10 @@
 }
 
 .header-main .search-box .btn-search {
-    cursor: pointer;
     margin-left: -135px;
 }
 
 .header-main .search-box .btn-login {
-    cursor: pointer;
     margin-left: 40px;
 }
 
@@ -93,15 +90,13 @@
     padding-left: 40px;
 }
 
-.header-main .container .ask-help {
+.header-main .help {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
     cursor: pointer;
 }
 
-<<<<<<< HEAD
 .header-main .help .help-container{
     display: flex;
     flex-direction: row;
@@ -109,9 +104,6 @@
 }
 
 .header-main .help .question_mark,
-=======
-.header-main .ask-help .question_mark,
->>>>>>> f372434c879aded49b4db12c0a6494c45a047bc0
 .dropdown_icon {
     height: 18.75px;
     width: 18.75px;
@@ -120,12 +112,7 @@
 
 .header .cart {
     display: flex;
-    align-items: center;
     gap: 10px;
-}
-
-.header .cart:hover {
-    color: var(--theme-color)
 }
 
 
@@ -135,7 +122,6 @@
     cursor: pointer;
 }
 
-<<<<<<< HEAD
 /* media queries */
 
 @media(max-width:1050px) {
@@ -180,15 +166,3 @@
     
     
 }
-=======
-
-
-
-/* responsiveness */
-
-@media (min-width: 320px) and (max-width: 480px) {
-   
-   
-    
-  }
->>>>>>> f372434c879aded49b4db12c0a6494c45a047bc0

@@ -1,45 +1,59 @@
-.hero {
-    width: 93.5%;
-    margin: 0 auto;
+.item-list{
+    margin-top: 10rem;
 }
 
-.item-list{ 
-    max-width: 1200px;
-    margin-top: 12rem;   
-}
-
-.item-list ul{
+ul{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     list-style-type: none;
     gap: 50px;
+    padding: 1rem 3rem 5rem 3rem;
     text-wrap: nowrap;
-    margin-bottom: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
-.item-list ul li a {
-    color: var(--gen-color-1);
+ul li{
+    display: inline-block;
 }
 
-li{
-    cursor: pointer;
-    font-size: 1.2rem;
+ul li a{
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s;
 }
 
-.item-list ul li a:hover{
+ul li:hover{
     color: var(--theme-color);
-    /* text-decoration: underline; */
-    transition: all .2s ease-in-out;
 }
 
-.hero-images {
-    background: url("../../../Hero-1.png") no-repeat;
-    width: 93.5%;
-    height: 32vw;
-    background-position: center;
-    /* position: relative; */
+.hero {
+    height: 24vw;
+    margin: 10px auto;
+    margin-top: -40px;
+    background: url("../../assets/HeroImg.jpg") no-repeat center;
+    background-size: contain;
+    position: relative;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin: 0 auto;
 }
 
+
+/* media queries */
+@media (max-width: 1050px){
+
+    .item-list{
+        margin-top: 22rem;
+        max-width: 45%;
+    }
+
+    ul {
+        gap: 15px;
+        display: grid;
+        grid-template-columns: 10px 10px 10px 10px;
+        grid-column-gap: 8rem;
+    }
+
+   
+}

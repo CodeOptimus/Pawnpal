@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Hero.css";
 
-
 // slider arrow customizations
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -23,7 +22,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "#FE6C2C"}}
+      style={{ ...style, display: "block", background: "#FE6C2C" }}
       onClick={onClick}
     />
   );
@@ -40,9 +39,9 @@ function Hero() {
     speed: 2000,
     cssEase: "linear",
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
   };
-  
+
   return (
     <>
       <div className="item-list">
@@ -83,8 +82,8 @@ function Hero() {
         </ul>
       </div>
 
-      
-  {/* Slider implementation for hero banners */}
+      {/* Slider implementation for hero banners */}
+
       <div className="slider-container">
         <Slider {...settings}>
           <div className="banner">

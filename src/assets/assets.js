@@ -22,6 +22,7 @@ import Sneaker from "./Sneaker.png";
 import InfinixPhone from "./Infinix-phone.png";
 import Mac from "./Mac.png";
 import Headphones from "./Headphones.png";
+import Rings from "./ring-waves.png";
 
 
 
@@ -30,6 +31,19 @@ import hero_1 from './Hero-1.png'
 import hero_2 from './Hero-2.png'
 import hero_3 from './Hero-3.png'
 import hero_4 from './HeroImg.jpg'
+
+
+// New arrival images
+import red_arrival from "./red-arrival.png"
+import white_arrival from "./white-arrival.png"
+import yellow_arrival from "./yellow-arrival.png"
+import blue_arrival from "./blue-arrival.png"
+import air_arrival from "./air-arrival.png"
+
+// Hotdeals
+import maze from "./maze.png"
+import toyota_board from "./toyota-board.png"
+import toyota_camry from "./Toyota-Camry.png"
 
 
 
@@ -61,6 +75,7 @@ import facebook_icon from './facebook-icon.png'
 import instagram_icon from './insta-icon.png'
 import ticktok_icon from './tictok-icon.png'
 import x_icon from './x-icon.png'
+// import Hotdeals from '../components/Hotdeals/Hotdeals'
 
 export const assets = {
     cart_icon,
@@ -108,5 +123,14 @@ export const assets = {
     Sneaker,
     InfinixPhone,
     Mac,
-    Headphones 
+    Headphones,
+    Rings,
+    red_arrival,
+    white_arrival,
+    yellow_arrival,
+    blue_arrival,
+    air_arrival,
+    maze,
+    toyota_board,
+    toyota_camry
 }

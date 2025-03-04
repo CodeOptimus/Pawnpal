@@ -1,5 +1,5 @@
 .category{
-    margin-top: 5rem;
+    margin: 5rem 0;
 }
 
 .category-heading {
@@ -51,7 +51,7 @@
 
 .category .flash-sale-orange-div{
     background-color: var(--theme-color);
-    width: 1318px;
+    width: 94%;
     border-radius: 15px 15px 0 0;
 }
 
@@ -83,33 +83,36 @@
 
 .category .flash-sales-container{
     background-color: #DFEDFA;
-    width: 1318px;
+    width: 94%;
     border-radius: 0 0 15px 15px;
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    grid-template-columns: 20px 20px 20px 20px;
-    grid-column-gap: 20rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
 }
 
 .category .flash-sales-items img{
-    height: 331px;
-    width: 296px;
-    margin-top: 2rem;
+    height: auto;
+    width: 320px;
+    margin: 2rem auto .5rem auto;
     cursor: pointer;
+    object-fit: contain;
 }
 
 .category .mega-sales{
     background: #8B49A9;
     border-radius: 20px;
     height: 320px;
-    width: 1318px;
+    width: 94%;
     margin-top: 10rem;
     display: flex;
+    gap: 10rem;
     color: var(--gen-color-2);
     padding: 5rem 4rem;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 
 .category .mega-sales .mega-sales-text h1{
@@ -126,27 +129,43 @@
     margin-top: 1rem;
 }
 
-.category .mega-sales .mega-sales-img {
-   margin-left: 10rem;
- }
-
- .category .mega-sales .mega-sales-img h1{
+.category .mega-sales .mega-sales-text h2{
     font-size: 16px;
     font-weight: 800;
-    margin-left: -7rem;
-    margin-top: -3rem;
+    position: absolute;
+    margin-left: 30rem;
+    margin-top: -15rem;
   }
 
-.category .mega-sales .mega-sales-img img{
-   height: 340px;
-   width: 280.49px;
-   margin-top: -6rem;
-}
 
 .category .mega-sales .mega-sales-btn{
-    margin-left: 5rem;
+    position: relative;
+    margin-left: 10rem;
+    margin-top: 0;
+    display: flex;
+    gap: 3rem;
     text-align: center;
  }
+
+ .category .mega-sales .mega-sales-btn img.theme-img{
+    margin-left: -1rem;
+   height: 340px;
+   width: 280.49px;
+   margin-top: -8rem;
+}
+
+
+ .category .mega-sales .mega-sales-btn .waves.img {
+    position: absolute;
+    top: 5rem;
+    /* left: 0; */
+    
+ }
+
+ /* .category .mega-sales .mega-sales-btn .waves img {
+    width: auto;
+    left: -4rem;
+ } */
 
  .category .mega-sales .mega-sales-btn h1{
     font-size: 30px;

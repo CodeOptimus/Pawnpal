@@ -122,18 +122,17 @@
     cursor: pointer;
 }
 
-/* media queries */
 
+
+/* media queries */
 @media(max-width:1050px) {
     .header-top {
         display: flex;
-        flex-direction: column;
         gap: 5px;
     }
 
     .header-main .search-box{
         display: flex;
-        flex-direction: column;
     }
 
     .header-main .buttons{
@@ -143,7 +142,6 @@
 
     .header-main .container{
         display: flex;
-        flex-direction: column;
     }
 
     .header-main .container .search-box .search_icon{
@@ -156,13 +154,11 @@
         width: 435px;
         margin-top: 1rem;
     }
-
+    
     .header-main .help-container{
         margin-top: 1rem;
         display: flex;
         flex-direction: row;
         gap: 15px;
     }
-    
-    
 }

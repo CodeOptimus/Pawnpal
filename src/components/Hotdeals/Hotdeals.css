@@ -1,0 +1,70 @@
+.hot-deals {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 5rem;
+    background-color: #80191D;
+    width: 94%;
+    margin: 0 auto;
+    height: 372px;
+    border-radius: 1rem;
+}
+
+.deal-tails {
+    text-align: center;
+    align-self: center;
+}
+
+.deal-tails p, h1 {
+    color: #fff;
+    line-height: 1.5;
+}
+
+.deal-tails p{
+    color: rgba(255, 255, 255, 0.6);
+    font-size: .7rem;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.timer h2 {
+    background-color: #fff;
+    margin-right: 1rem;
+    padding: .6rem;
+    width: 60px;
+    border-radius: 4px;
+}
+
+.timer span {
+    font-size: .6rem;
+    display: block;
+}
+
+.shop-now-btn {
+    color: #fff;
+    background-color: #000;
+    padding: .5rem 3.5rem;
+    font-weight: 600;
+    border-radius: .5rem;
+}
+
+.toyota-container {
+    position: relative;
+}
+
+.toyota-container .board {
+    position: relative;
+    top: 2.5rem;
+}
+
+.toyota img {
+    position: absolute;
+    bottom: 1.5rem;
+    right: -1rem;
+}

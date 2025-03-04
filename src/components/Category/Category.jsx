@@ -56,7 +56,11 @@ function Category() {
           <div className="flash-sale-orange-div">
             <div className="text">
               <h3>
-                <img src={assets.FlashIcon} alt="flash-icon" className="flash-icon" />
+                <img
+                  src={assets.FlashIcon}
+                  alt="flash-icon"
+                  className="flash-icon"
+                />
                 Flash Sales
               </h3>
               <h3>This Round Ends in 20h : 30m : 20s</h3>
@@ -102,15 +106,22 @@ function Category() {
               Find Headset Offers & Deals from Jumia with <br />
               Secure Payment - Fast Delivery - Free Returns.
             </p>
-          </div>
-          <div className="mega-sales-img">
-            <h1>50% OFF</h1>
-            <img src={assets.Headphones} alt="headphones" />
+            <h2>50% OFF</h2>
           </div>
           <div className="mega-sales-btn">
-            <h1>Promo</h1>
-            <p>FridayDeal</p>
-            <button>Start Shopping</button>
+            <img
+              src={assets.Headphones}
+              alt="headphones"
+              className="theme-img"
+            />
+            {/* <div className="waves">
+              <img src={assets.Rings} alt="ring waves" className="waves-img"/>
+            </div> */}
+            <div className="start-shopping">
+              <h1>Promo</h1>
+              <p>FridayDeal</p>
+              <button>Start Shopping</button>
+            </div>
           </div>
         </div>
       </div>

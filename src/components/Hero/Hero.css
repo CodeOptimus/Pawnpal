@@ -40,16 +40,18 @@ ul li:hover {
 
 
 /* media queries */
+/* @media (min-width: 320px) and (max-width: 480px) {
+
+} */
+
 @media (max-width: 1050px) {
   .item-list {
-    margin-top: 22rem;
-    max-width: 45%;
+    margin-top: 12rem;
+    max-width: 90%;
   }
 
   ul {
-    gap: 15px;
-    display: grid;
-    grid-template-columns: 10px 10px 10px 10px;
-    grid-column-gap: 8rem;
+    display: flex;
   }
+  
 }

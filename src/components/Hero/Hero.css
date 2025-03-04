@@ -29,7 +29,7 @@ ul li:hover{
     color: var(--theme-color);
 }
 
-.hero {
+/* .hero {
     height: 24vw;
     margin: 10px auto;
     margin-top: -40px;
@@ -37,7 +37,17 @@ ul li:hover{
     background-size: contain;
     position: relative;
     border-radius: 10px;
+} */
+
+.slider-container {
+    width: 90%;
+    margin: 0 auto;
 }
+
+/* .slider-container .banner {
+    width: 100%;
+    margin: 0 auto;
+} */
 
 
 /* media queries */

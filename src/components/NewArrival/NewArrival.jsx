@@ -11,7 +11,7 @@ Don't miss out on the freshest trends and hottest deals!</p>
 
         <div className='new-arrival-container'>
             <div className='new-arrival-item'>
-                <img src={assets.Phone} alt='phone' />
+                <img src={assets.Phone} alt='new phone' />
                 <p className='item-name'>Phones</p>
             </div>
     

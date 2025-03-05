@@ -87,7 +87,7 @@ function Hero() {
       <div className="slider-container">
         <Slider {...settings}>
           <div className="banner">
-            <img src="../../../Hero-1.png" alt="Welcome to Pawnpal banner" />
+            <img src="../../../HeroImg.jpg" alt="Welcome to Pawnpal banner" />
           </div>
           <div className="banner">
             <img src="../../../Hero-2.png" alt="Black Friday Sales Banner" />

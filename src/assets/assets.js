@@ -119,7 +119,6 @@ export const assets = {
     Bags,
     Accessories,
     FlashIcon,
-    DropdownIcon,
     WatchBlueBg,
     Sneaker,
     InfinixPhone,

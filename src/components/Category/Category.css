@@ -145,6 +145,7 @@
     display: flex;
     gap: 3rem;
     text-align: center;
+    z-index: 9999;
  }
 
  .category .mega-sales .mega-sales-btn img.theme-img{
@@ -152,17 +153,19 @@
    height: 340px;
    width: 280.49px;
    margin-top: -8rem;
+   z-index: 999;
 }
 
 
- .category .mega-sales .mega-sales-btn .waves.img {
+ .category .mega-sales .mega-sales-btn .waves img {
     position: absolute;
-    top: 5rem;
+    z-index: 1;
+    top: -5rem;
     /* left: 0; */
     
  }
 
- /* .category .mega-sales .mega-sales-btn .waves img {
+ /* .category .mega-sales .mega-sales-btn .waves{
     width: auto;
     left: -4rem;
  } */

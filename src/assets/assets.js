@@ -55,6 +55,7 @@ import testimony_3 from './actor-guy.png'
 import testimony_4 from './serious-guy.png'
 import testimony_5 from './rasta-guy.png'
 import testimony_6 from './freedom-guy.png'
+import testimony_7 from './Lady-1.png'
 
 
 
@@ -95,6 +96,7 @@ export const assets = {
     testimony_4,
     testimony_5,
     testimony_6,
+    testimony_7,
     sponsor_0,
     sponsor_1,
     sponsor_2,

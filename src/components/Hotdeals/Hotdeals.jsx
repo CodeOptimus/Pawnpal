@@ -24,11 +24,15 @@ function Hotdeals() {
         </a>
       </div>
       <div className="toyota-container">
-        <img src={assets.toyota_board} alt="" className="board"/>
-        {/* <img src={assets.maze} alt="" /> */}
+        <div className="boards">
+          <img src={assets.toyota_board} alt="" className="board"/> 
+          <img src={assets.maze} alt="" className="maze-board"/> 
+        </div>
+        
         <div className="toyota">
           <img src={assets.toyota_camry} alt="" />
         </div>
+          
       </div>
     </div>
   );

@@ -1,0 +1,41 @@
+.heading {
+    text-align: center;
+}
+
+.heading h1 {
+    color: #1e3a8a;
+    font-size: 2rem;
+}
+
+
+.slider-container {
+    width: 94%;
+    margin: 2rem auto;
+    background-color: #DFEDFA;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.slider-container .review {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.slider-container .review h3 {
+    color: #FE6C2C;
+}
+
+.slider-container p {
+    color: rgba(0, 0, 0, 1);
+}
+
+.slider-container .review .profile {
+    /* display: flex;
+    flex-direction: column; */
+    align-items: center;
+}

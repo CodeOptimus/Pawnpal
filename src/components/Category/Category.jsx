@@ -109,14 +109,14 @@ function Category() {
             <h2>50% OFF</h2>
           </div>
           <div className="mega-sales-btn">
+            <div className="waves">
+              <img src={assets.Rings} alt="ring waves" className="waves-img"/>
+            </div>
             <img
               src={assets.Headphones}
               alt="headphones"
               className="theme-img"
             />
-            {/* <div className="waves">
-              <img src={assets.Rings} alt="ring waves" className="waves-img"/>
-            </div> */}
             <div className="start-shopping">
               <h1>Promo</h1>
               <p>FridayDeal</p>

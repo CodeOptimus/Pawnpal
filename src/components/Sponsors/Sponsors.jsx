@@ -10,7 +10,7 @@ function Sponsors() {
     autoplay: true,
     speed: 500,
     autoplaySpeed: 1000,
-    // cssEase: "linear",
+    cssEase: "linear",
   };
   return (
     <div className="slider-container">

@@ -3,7 +3,7 @@ import cart_icon from './cart-icon.png'
 import searchIcon from './search-icon.png'
 import questionMark from './question-mark.png'
 import telephoneIcon from './telephone-icon.png'
-import dropdownIconBlack from './dropdown.png'
+import dropdownIconBlack from './dropdown-black.png'
 
 // Category images
 import Phone from "./Phone.png";
@@ -15,7 +15,7 @@ import Electronics from "./Electronics.png";
 import Bags from "./Bags.png";
 import Accessories from "./Accessories.png";
 import FlashIcon from "./Flash-icon.png";
-import DropdownIcon from "./Dropdown-icon.png";
+import DropdownIconWhite from "./dropdown-white.png";
 import WatchBlueBg from "./Watch-blue-bg.png";
 import Sneaker from "./Sneaker.png";
 import InfinixPhone from "./Infinix-phone.png";
@@ -82,7 +82,7 @@ export const assets = {
     searchIcon,
     questionMark,
     telephoneIcon,
-    DropdownIcon,
+    DropdownIconWhite,
     dropdownIconBlack,
     hero_1,
     hero_2,

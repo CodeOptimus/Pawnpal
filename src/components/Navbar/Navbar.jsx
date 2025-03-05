@@ -62,7 +62,7 @@ function Navbar() {
             <div className="dropdown-icon">
               <img
                 src={assets.dropdownIconBlack}
-                alt="dropdown icon"
+                alt="dropdown icon black"
                 className="dropdown_icon"
               />
             </div>

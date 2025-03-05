@@ -30,7 +30,7 @@ function Testimonials() {
         </p>
       </div>
 
-      <div className="slider-container">
+      <div className="slider-container-review">
         <Slider {...settings}>
           <div className="review">
             <div className="info">

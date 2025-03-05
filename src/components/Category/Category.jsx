@@ -68,7 +68,7 @@ function Category() {
                 View All
                 <img
                   src={assets.DropdownIcon}
-                  alt="dropdown-icon"
+                  alt="dropdown icon white"
                   className="dropdown-icon"
                 />
               </h3>

@@ -4,7 +4,7 @@ import searchIcon from './search-icon.png'
 import questionMark from './question-mark.png'
 import telephoneIcon from './telephone-icon.png'
 import dropdownIcon from './dropdown-icon.png'
-import dropdownIconBlack from './dropdown.png'
+// import dropdownIconBlack from './dropdown.png'
 
 // Category images
 import Phone from "./Phone.png";

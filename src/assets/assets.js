@@ -18,7 +18,7 @@ import FlashIcon from "./Flash-icon.png";
 import DropdownIconWhite from "./dropdown-white.png";
 import WatchBlueBg from "./bluebg-watch.png";
 import Sneaker from "./Sneaker.png";
-import InfinixPhone from "./Infinix-phone.png";
+import InfinixPhone from "./Infinix-Phone.png";
 import Mac from "./Mac.png";
 import Headphones from "./Headphones.png";
 import Rings from "./ring-waves.png";

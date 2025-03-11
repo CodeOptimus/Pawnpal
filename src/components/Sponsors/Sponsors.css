@@ -1,0 +1,33 @@
+.slider-container {
+    width: 100%;
+    margin: 0 auto 0 auto;
+    padding: 2.5rem 0;
+    overflow: hidden; 
+    background-color: gray;
+  }
+  
+  .sponsor-logo {
+    margin: 0;
+    padding: 0 0.25rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sponsor-logo img {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .slick-slide {
+    padding: 0 0.25rem; /* Reduce padding for slides */
+  }
+  
+  .slick-slide:first-child {
+    padding-left: 0;
+  }
+  
+  .slick-slide:last-child {
+    padding-right: 0;
+  }

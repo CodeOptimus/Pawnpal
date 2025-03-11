@@ -22,6 +22,8 @@ import InfinixPhone from "./Infinix-phone.png";
 import Mac from "./Mac.png";
 import Headphones from "./Headphones.png";
 import Rings from "./ring-waves.png";
+import AppleAirpodsPro from "./Apple-AirPods-Pro.png";
+import IceWatch from "./Ice-Watch-Ultra Violet-Small.png"
 
 
 
@@ -125,6 +127,8 @@ export const assets = {
     Mac,
     Headphones,
     Rings,
+    AppleAirpodsPro,
+    IceWatch,
     red_arrival,
     white_arrival,
     yellow_arrival,

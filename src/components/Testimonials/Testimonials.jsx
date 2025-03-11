@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import "./Testimonials.css";
 import { assets } from "../../assets/assets";
@@ -15,12 +15,34 @@ function Testimonials() {
     autoplaySpeed: 1500,
     cssEase: "linear",
     swipeToSlide: true,
-    afterChange: function (index) {
-      console.log(
-        `Slider Changed to: ${index + 1};`
-      );
-    },
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
+
   return (
     <>
       <div className="heading">
@@ -32,159 +54,25 @@ function Testimonials() {
 
       <div className="slider-container-review">
         <Slider {...settings}>
-          <div className="review">
-            <div className="info">
-              <h3>Customer Review</h3>
-              <p>
-                I recently purchased a product and I couldn't be happier with my
-                experience! The quality is outstanding, and it exceeded all my
-                expectations. The customer service team was also incredibly
-                helpful and responsive. I highly recommend this site to anyone
-                looking for a reliable and top-notch product. Five stars!
-              </p>
+          {[...Array(9)].map((_, index) => (
+            <div className="review" key={index}>
+              <div className="info">
+                <h3>Customer Review</h3>
+                <p>
+                  I recently purchased a product and I couldn't be happier with my
+                  experience! The quality is outstanding, and it exceeded all my
+                  expectations. The customer service team was also incredibly
+                  helpful and responsive. I highly recommend this site to anyone
+                  looking for a reliable and top-notch product. Five stars!
+                </p>
+              </div>
+              <div className="profile">
+                <img src={assets[`testimony_${index}`]} alt={`testimony ${index}`} />
+                <p>Christopher Doe</p>
+                <span>Chairman</span>
+              </div>
             </div>
-            <div className="profile">
-              <img src={assets.testimony_0} alt="smiling guy" />
-              <p>Christopher Doe</p>
-              <span>Chairman</span>
-            </div>
-          </div>
-          <div className="review">
-            <div className="info">
-              <h3>Customer Review</h3>
-              <p>
-                I recently purchased a product and I couldn't be happier with my
-                experience! The quality is outstanding, and it exceeded all my
-                expectations. The customer service team was also incredibly
-                helpful and responsive. I highly recommend this site to anyone
-                looking for a reliable and top-notch product. Five stars!
-              </p>
-            </div>
-            <div className="profile">
-              <img src={assets.testimony_1} alt="guy in blue" />
-              <p>Christopher Doe</p>
-              <span>Chairman</span>
-            </div>
-          </div>
-          <div className="review">
-            <div className="info">
-              <h3>Customer Review</h3>
-              <p>
-                I recently purchased a product and I couldn't be happier with my
-                experience! The quality is outstanding, and it exceeded all my
-                expectations. The customer service team was also incredibly
-                helpful and responsive. I highly recommend this site to anyone
-                looking for a reliable and top-notch product. Five stars!
-              </p>
-            </div>
-            <div className="profile">
-              <img src={assets.testimony_2} alt="second lady" />
-              <p>Christopher Doe</p>
-              <span>Chairman</span>
-            </div>
-          </div>
-          <div className="review">
-            <div className="info">
-              <h3>Customer Review</h3>
-              <p>
-                I recently purchased a product and I couldn't be happier with my
-                experience! The quality is outstanding, and it exceeded all my
-                expectations. The customer service team was also incredibly
-                helpful and responsive. I highly recommend this site to anyone
-                looking for a reliable and top-notch product. Five stars!
-              </p>
-            </div>
-            <div className="profile">
-              <img src={assets.testimony_3} alt="actor guy" />
-              <p>Christopher Doe</p>
-              <span>Chairman</span>
-            </div>
-          </div>
-          <div className="review">
-            <div className="info">
-              <h3>Customer Review</h3>
-              <p>
-                I recently purchased a product and I couldn't be happier with my
-                experience! The quality is outstanding, and it exceeded all my
-                expectations. The customer service team was also incredibly
-                helpful and responsive. I highly recommend this site to anyone
-                looking for a reliable and top-notch product. Five stars!
-              </p>
-            </div>
-            <div className="profile">
-              <img src={assets.testimony_4} alt="serious guy" />
-              <p>Christopher Doe</p>
-              <span>Chairman</span>
-            </div>
-          </div>
-          <div className="review">
-            <div className="info">
-              <h3>Customer Review</h3>
-              <p>
-                I recently purchased a product and I couldn't be happier with my
-                experience! The quality is outstanding, and it exceeded all my
-                expectations. The customer service team was also incredibly
-                helpful and responsive. I highly recommend this site to anyone
-                looking for a reliable and top-notch product. Five stars!
-              </p>
-            </div>
-            <div className="profile">
-              <img src={assets.testimony_5} alt="rasta guy" />
-              <p>Christopher Doe</p>
-              <span>Chairman</span>
-            </div>
-          </div>
-          <div className="review">
-            <div className="info">
-              <h3>Customer Review</h3>
-              <p>
-                I recently purchased a product and I couldn't be happier with my
-                experience! The quality is outstanding, and it exceeded all my
-                expectations. The customer service team was also incredibly
-                helpful and responsive. I highly recommend this site to anyone
-                looking for a reliable and top-notch product. Five stars!
-              </p>
-            </div>
-            <div className="profile">
-              <img src={assets.testimony_6} alt="first lady" />
-              <p>Christopher Doe</p>
-              <span>Chairman</span>
-            </div>
-          </div>
-          <div className="review">
-            <div className="info">
-              <h3>Customer Review</h3>
-              <p>
-                I recently purchased a product and I couldn't be happier with my
-                experience! The quality is outstanding, and it exceeded all my
-                expectations. The customer service team was also incredibly
-                helpful and responsive. I highly recommend this site to anyone
-                looking for a reliable and top-notch product. Five stars!
-              </p>
-            </div>
-            <div className="profile">
-              <img src={assets.testimony_7} alt="smiling guy" />
-              <p>Christopher Doe</p>
-              <span>Chairman</span>
-            </div>
-          </div>
-          <div className="review">
-            <div className="info">
-              <h3>Customer Review</h3>
-              <p>
-                I recently purchased a product and I couldn't be happier with my
-                experience! The quality is outstanding, and it exceeded all my
-                expectations. The customer service team was also incredibly
-                helpful and responsive. I highly recommend this site to anyone
-                looking for a reliable and top-notch product. Five stars!
-              </p>
-            </div>
-            <div className="profile">
-              <img src={assets.testimony_0} alt="smiling guy" />
-              <p>Christopher Doe</p>
-              <span>Chairman</span>
-            </div>
-          </div>
+          ))}
         </Slider>
       </div>
     </>

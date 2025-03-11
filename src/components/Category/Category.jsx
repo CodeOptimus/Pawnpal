@@ -1,10 +1,67 @@
-import React from "react";
-// import { assets } from "../../assets/assets";
+import React, { useState, useEffect } from "react";
 import { assets } from "../../assets/assets";
-
 import "./Category.css";
 
+
+const CategoryItem = ({ image, alt, name }) => (
+  <div className="category-item">
+    <img src={image} alt={alt} />
+    <p className="item-name">{name}</p>
+  </div>
+);
+
+const FlashSalesItem = ({ image, alt }) => (
+  <div className="flash-sales-items">
+    <img src={image} alt={alt} />
+  </div>
+);
+
+const categories = [
+  { image: assets.Phone, alt: "phone", name: "Phones" },
+  { image: assets.Watch, alt: "watch", name: "Watches" },
+  { image: assets.Furniture, alt: "furniture", name: "Furniture" },
+  { image: assets.Laptop, alt: "laptop", name: "Laptops" },
+  { image: assets.Shoes, alt: "shoes", name: "Shoes" },
+  { image: assets.Electronics, alt: "electronics", name: "Electronics" },
+  { image: assets.Bags, alt: "bags", name: "Bags" },
+  { image: assets.Accessories, alt: "accessories", name: "Accessories" },
+];
+
+const flashSales = [
+  { image: assets.WatchBlueBg, alt: "watch" },
+  { image: assets.Sneaker, alt: "sneaker" },
+  { image: assets.InfinixPhone, alt: "phone" },
+  { image: assets.Mac, alt: "mac" },
+];
+
+const backgroundColors = [
+  "#8B49A9",
+  "rgba(0, 0, 0, 1)",
+  "rgba(35, 14, 81, 1)"
+];
+
+const themeImages = [
+  assets.Headphones,
+  assets.AppleAirpodsPro,
+  assets.IceWatch
+];
+
+
 function Category() {
+  const [currentColor, setCurrentColor] = useState(0);
+  const [currentThemeImage, setCurrentThemeImage] = useState(0);
+
+  // change background color and theme image every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentColor((prev) => (prev + 1) % backgroundColors.length);
+      setCurrentThemeImage((prev) => (prev + 1) % themeImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  
   return (
     <>
       <div className="category">
@@ -12,47 +69,12 @@ function Category() {
         <p className="category-products">
           Shop now and explore our wide range of products!
         </p>
+
         <div className="category-container">
-          <div className="category-item">
-            <img src={assets.Phone} alt="phone" />
-            <p className="item-name">Phones</p>
-          </div>
-
-          <div className="category-item">
-            <img src={assets.Watch} alt="watch" />
-            <p className="item-name">Watches</p>
-          </div>
-
-          <div className="category-item">
-            <img src={assets.Furniture} alt="furniture" />
-            <p className="item-name">Furniture</p>
-          </div>
-
-          <div className="category-item">
-            <img src={assets.Laptop} alt="laptop" />
-            <p className="item-name">Laptops</p>
-          </div>
-
-          <div className="category-item">
-            <img src={assets.Shoes} alt="shoes" />
-            <p className="item-name">Shoes</p>
-          </div>
-
-          <div className="category-item">
-            <img src={assets.Electronics} alt="electronics" />
-            <p className="item-name">Electronics</p>
-          </div>
-
-          <div className="category-item">
-            <img src={assets.Bags} alt="bags" />
-            <p className="item-name">Bags</p>
-          </div>
-
-          <div className="category-item">
-            <img src={assets.Accessories} alt="accessories" />
-            <p className="item-name">Accessories</p>
-          </div>
-        </div>
+        {categories.map((item, index) => (
+          <CategoryItem key={index} {...item} />
+        ))}
+      </div>
 
         <div className="flash-sales">
           <div className="flash-sale-orange-div">
@@ -79,24 +101,13 @@ function Category() {
         </div>
 
         <div className="flash-sales-container">
-          <div className="flash-sales-items">
-            <img src={assets.WatchBlueBg} alt="phone" />
-          </div>
+        {flashSales.map((item, index) => (
+          <FlashSalesItem key={index} {...item} />
+        ))}
+      </div>
 
-          <div className="flash-sales-items">
-            <img src={assets.Sneaker} alt="phone" />
-          </div>
+        <div className="mega-sales" style={{ backgroundColor: backgroundColors[currentColor] }}>
 
-          <div className="flash-sales-items">
-            <img src={assets.InfinixPhone} alt="phone" />
-          </div>
-
-          <div className="flash-sales-items">
-            <img src={assets.Mac} alt="phone" />
-          </div>
-        </div>
-
-        <div className="mega-sales">
           <div className="mega-sales-text">
             <h1>
               Mega Sales
@@ -115,7 +126,7 @@ function Category() {
               <img src={assets.Rings} alt="ring waves" className="waves-img"/>
             </div>
             <img
-              src={assets.Headphones}
+              src={themeImages[currentThemeImage]}
               alt="headphones"
               className="theme-img"
             />

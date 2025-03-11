@@ -14,28 +14,44 @@
     background-color: #DFEDFA;
     padding: 1rem;
     border-radius: 1rem;
+    overflow: hidden;
 }
 
 .slider-container-review .review {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
     background-color: #fff;
     border-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1rem;
+    margin: 0 1rem;
+    text-align: center;
 }
 
 .slider-container-review .review h3 {
     color: #FE6C2C;
 }
 
-.slider-container-review p {
+.slider-container-review .review p {
     color: rgba(0, 0, 0, 1);
 }
 
 .slider-container-review .review .profile {
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
+
+.slick-slide {
+    padding: 0 1rem;
+}
+
+.slick-slide:first-child {
+    padding-left: 0;
+}
+
+.slick-slide:last-child {
+    padding-right: 0;
+}
+

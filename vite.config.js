@@ -5,4 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: process.env.VITE_BASE_PATH || '/deploy_react_app_github_pages_vercel',
+  resolve: {
+    alias: {
+      '@': '/src', 
+    },
+  },
 })

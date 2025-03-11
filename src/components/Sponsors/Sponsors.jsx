@@ -18,9 +18,9 @@ function Sponsors() {
     dots: false,
   };
   return (
-    <div className="slider-container">
+    <div className="slider-container-sponsors">
       <Slider {...settings}>
-      {[...Array(10)].map((_, index) => (
+      {[...Array(9)].map((_, index) => (
         <div className="sponsor-logo">
           <img src={assets[`sponsor_${index}`]} alt={`sponsor ${index}`} />
         </div>

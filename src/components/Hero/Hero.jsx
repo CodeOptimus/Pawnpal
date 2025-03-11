@@ -1,35 +1,15 @@
 import React from "react";
-import { Component } from "react";
+import { assets } from "../../assets/assets";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Hero.css";
 
-// slider arrow customizations
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "#FE6C2C" }}
-      onClick={onClick}
-    />
-  );
-}
 
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "#FE6C2C" }}
-      onClick={onClick}
-    />
-  );
-}
+const heroImages = [assets.hero_2, assets.hero_3, assets.hero_4];
 
 function Hero() {
-  // settings for slider effect
+  // Settings for slider effect
   const settings = {
     dots: true,
     infinite: true,
@@ -38,8 +18,6 @@ function Hero() {
     autoplay: true,
     speed: 2000,
     cssEase: "linear",
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
   };
 
   return (
@@ -83,18 +61,13 @@ function Hero() {
       </div>
 
       {/* Slider implementation for hero banners */}
-
       <div className="slider-container">
         <Slider {...settings}>
-          <div className="banner">
-            <img src="../../../HeroImg.jpg" alt="Welcome to Pawnpal banner" />
-          </div>
-          <div className="banner">
-            <img src="../../../Hero-2.png" alt="Black Friday Sales Banner" />
-          </div>
-          <div className="banner">
-            <img src="../../../Hero-3.png" alt="Week's Special Banner" />
-          </div>
+          {heroImages.map((image, index) => (
+            <div className="banner" key={index}>
+              <img src={image} alt={`Welcome to Pawnpal banner ${index + 1}`} />
+            </div>
+          ))}
         </Slider>
       </div>
     </>
@@ -102,3 +75,29 @@ function Hero() {
 }
 
 export default Hero;
+
+
+
+
+// slider arrow customizations
+// function SampleNextArrow(props) {
+//   const { className, style, onClick } = props;
+//   return (
+//     <div
+//       className={className}
+//       style={{ ...style, display: "block", background: "#FE6C2C" }}
+//       onClick={onClick}
+//     />
+//   );
+// }
+
+// function SamplePrevArrow(props) {
+//   const { className, style, onClick } = props;
+//   return (
+//     <div
+//       className={className}
+//       style={{ ...style, display: "block", background: "#FE6C2C" }}
+//       onClick={onClick}
+//     />
+//   );
+// }

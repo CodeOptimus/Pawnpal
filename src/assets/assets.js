@@ -16,7 +16,7 @@ import Bags from "./Bags.png";
 import Accessories from "./Accessories.png";
 import FlashIcon from "./Flash-icon.png";
 import DropdownIconWhite from "./dropdown-white.png";
-import WatchBlueBg from "./Watch-Blue-Bg.png";
+import WatchBlueBg from "./bluebg-watch.png";
 import Sneaker from "./Sneaker.png";
 import InfinixPhone from "./Infinix-phone.png";
 import Mac from "./Mac.png";

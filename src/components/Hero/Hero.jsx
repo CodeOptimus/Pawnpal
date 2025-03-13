@@ -11,7 +11,7 @@ const heroImages = [assets.hero_2, assets.hero_3, assets.hero_4];
 function Hero() {
   // Settings for slider effect
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,

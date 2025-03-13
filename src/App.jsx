@@ -1,14 +1,22 @@
-// import { useState } from 'react'
+// import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-import Footer from "./components/Footer/Footer";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
     <>
-    <div className="app">
-        <Home />
-        </div>
-        <Footer />
+      <h1 style={{ textAlign: "center", margin: "20px 0" }}>
+        Welcome to Our Store
+      </h1>
+      <div style={{ minHeight: "100vh" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </>
   );
 }

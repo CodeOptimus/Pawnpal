@@ -4,11 +4,12 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 // import ItemCard from "../../components/ItemCard/ItemCard";
 import "./Cart.css";
+import PropTypes from "prop-types";
 
-function Cart() {
+function Cart({ setShowAuthModal, isAuthModalOpen }) {
   return (
     <>
-      <Navbar />
+      <Navbar setShowAuthModal={setShowAuthModal} isAuthModalOpen={isAuthModalOpen} />
       <div className="item-list">
         <ul>
           <li>
@@ -50,7 +51,9 @@ function Cart() {
         <div className="cart-header">
           <img src={assets.cart_image} alt="" />
           <p>Your cart is empty!</p>
-          <p className="info">Browse our categories and discover our best deals!</p>
+          <p className="info">
+            Browse our categories and discover our best deals!
+          </p>
           <Link to="/" className="start-shopping-cart">
             Start Shopping
           </Link>
@@ -60,5 +63,10 @@ function Cart() {
     </>
   );
 }
+
+Cart.propTypes = {
+  setShowAuthModal: PropTypes.func.isRequired,
+  isAuthModalOpen: PropTypes.bool.isRequired,
+};
 
 export default Cart;

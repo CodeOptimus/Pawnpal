@@ -15,8 +15,9 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import "./Dashboard.css";
 import ItemCard from "../../components/ItemCard/ItemCard";
+import PropTypes from "prop-types";
 
-function Dashboard() {
+function Dashboard({ setShowAuthModal, isAuthModalOpen }) {
   const purchasedItems = [
     {
       image: assets.dashboard_fridge,
@@ -32,7 +33,7 @@ function Dashboard() {
 
   return (
     <>
-      <Navbar />
+      <Navbar setShowAuthModal={setShowAuthModal} isAuthModalOpen={isAuthModalOpen} />
       <div className="dashboard-container">
         <div className="navigation">
           <p>
@@ -115,5 +116,10 @@ function Dashboard() {
     </>
   );
 }
+
+Dashboard.propTypes = {
+  setShowAuthModal: PropTypes.func.isRequired,
+  isAuthModalOpen: PropTypes.bool.isRequired,
+};
 
 export default Dashboard;

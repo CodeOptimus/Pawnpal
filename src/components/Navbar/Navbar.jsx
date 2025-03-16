@@ -2,8 +2,14 @@ import "./Navbar.css";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
 import { MdShoppingCart } from "react-icons/md";
+import PropTypes from "prop-types";
+import { useUser } from "../../context/UserContext";
 
-function Navbar() {
+function Navbar({ setShowAuthModal, isAuthModalOpen }) {
+  const { user, logout } = useUser();
+
+  if (isAuthModalOpen) return null;
+
   return (
     <header className="header">
       <div className="header-top">
@@ -45,39 +51,61 @@ function Navbar() {
             />
             <div className="buttons">
               <button className="btn-search">Search</button>
-              <button className="btn-login">Login</button>
+              {user ? (
+                <div className="user-info">
+                  <img 
+                    src={user.profilePic} 
+                    alt="Profile" 
+                    className="profile-pic"
+                  />
+                  <span>Hi, {user.firstName}</span>
+                </div>
+              ) : (
+                <button
+                  className="btn-login"
+                  onClick={() => setShowAuthModal(true)}
+                >
+                  Login
+                </button>
+              )}
             </div>
           </div>
 
           <div className="help">
             <div className="help-container">
               <div className="help-area">
-              <img
-                src={assets.questionMark}
-                alt="question-mark"
-                className="question_mark"
-              />
-              <p>Help</p>
-              <img
-                src={assets.dropdownIconBlack}
-                alt="dropdown icon black"
-                className="dropdown_icon"
-              />
+                <img
+                  src={assets.questionMark}
+                  alt="question-mark"
+                  className="question_mark"
+                />
+                <p>Help</p>
+                <img
+                  src={assets.dropdownIconBlack}
+                  alt="dropdown icon black"
+                  className="dropdown_icon"
+                />
               </div>
-            <Link to="/cart" style={{ textDecoration: "none", color: "inherit" }}>
-              <div className="nav-cart">
-                <MdShoppingCart />
-                <p>Cart</p>
-              </div>
-            </Link>
+              <Link
+                to="/cart"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="nav-cart">
+                  <MdShoppingCart />
+                  <p>Cart</p>
+                </div>
+              </Link>
             </div>
           </div>
-
-          
         </div>
       </div>
     </header>
   );
 }
+
+Navbar.propTypes = {
+  setShowAuthModal: PropTypes.func.isRequired,
+  isAuthModalOpen: PropTypes.bool.isRequired,
+};
 
 export default Navbar;

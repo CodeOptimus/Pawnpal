@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { assets } from "../../assets/assets";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

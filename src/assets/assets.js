@@ -79,6 +79,13 @@ import ticktok_icon from './tictok-icon.png'
 import x_icon from './x-icon.png'
 // import Hotdeals from '../components/Hotdeals/Hotdeals'
 
+// Dashboard images
+import dashboard_fridge from './fridge-bought.png'
+import dashboard_profile from './profile-pic.png'
+
+// Cart page 
+import cart_image from './orange-cart.png'
+
 export const assets = {
     cart_icon,
     searchIcon,
@@ -136,5 +143,8 @@ export const assets = {
     air_arrival,
     maze,
     toyota_board,
-    toyota_camry
+    toyota_camry,
+    dashboard_fridge,
+    dashboard_profile,
+    cart_image
 }

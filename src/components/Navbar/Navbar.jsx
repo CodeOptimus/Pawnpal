@@ -1,5 +1,7 @@
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
+import { MdShoppingCart } from "react-icons/md";
 
 function Navbar() {
   return (
@@ -49,28 +51,25 @@ function Navbar() {
 
           <div className="help">
             <div className="help-container">
-            <div className="question-mark">
+              <div className="help-area">
               <img
                 src={assets.questionMark}
                 alt="question-mark"
                 className="question_mark"
               />
-            </div>
-            <div className="help">
               <p>Help</p>
-            </div>
-            <div className="dropdown-icon">
               <img
                 src={assets.dropdownIconBlack}
                 alt="dropdown icon black"
                 className="dropdown_icon"
               />
-            </div>
-
-            <div className="cart">
-            <img src={assets.cart_icon} alt="cart-icon" className="cart_icon" />
-            <span>Cart</span>
-          </div>
+              </div>
+            <Link to="/cart" style={{ textDecoration: "none", color: "inherit" }}>
+              <div className="nav-cart">
+                <MdShoppingCart />
+                <p>Cart</p>
+              </div>
+            </Link>
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import { MdPerson } from "react-icons/md";
 import { RiHome7Fill } from "react-icons/ri";
@@ -16,11 +16,18 @@ import Footer from "../../components/Footer/Footer";
 import "./Dashboard.css";
 import ItemCard from "../../components/ItemCard/ItemCard";
 import PropTypes from "prop-types";
+import { useUser } from "../../context/UserContext";
 
 function Dashboard({ setShowAuthModal, isAuthModalOpen }) {
+  const { user } = useUser();
+
+  if (!user) {
+    return <Navigate to="/" replace />;
+  }
+
   const purchasedItems = [
     {
-      image: assets.dashboard_fridge,
+      image: assets.dashboard_fridge || '',
       itemName: "Table-Top Fridge - Nexus 250 - Silver",
       seller: "Christopher Doe",
       shop: "KK House Electronics",

@@ -86,6 +86,16 @@ import dashboard_profile from './profile-pic.png'
 // Cart page 
 import cart_image from './orange-cart.png'
 
+
+// more items and productss page images
+import add_to_cart from './add-to-cart.png'
+import xiaomi_phone from './xiaomi.png'
+import iphone13_for_products from './iPhone-13-Pro.png'
+import hand_phone from './handphone.png'
+import mtn_logo from './mtn-logo.png'
+import vodaphone_logo from './vodafonecash.png'
+import stars from './stars.png'
+
 export const assets = {
     cart_icon,
     searchIcon,
@@ -146,5 +156,12 @@ export const assets = {
     toyota_camry,
     dashboard_fridge,
     dashboard_profile,
-    cart_image
+    cart_image,
+    add_to_cart,
+    xiaomi_phone,
+    hand_phone,
+    mtn_logo,
+    vodaphone_logo,
+    iphone13_for_products,
+    stars,
 }

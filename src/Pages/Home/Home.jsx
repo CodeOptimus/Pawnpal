@@ -7,6 +7,7 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import Sponsors from "../../components/Sponsors/Sponsors";
 import Footer from "../../components/Footer/Footer";
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 
 function Home({ setShowAuthModal }) {
   return (
@@ -14,6 +15,9 @@ function Home({ setShowAuthModal }) {
       <Navbar setShowAuthModal={setShowAuthModal} />
       <Hero />
       <Category />
+      <Link to="/products" className="category-item">
+      
+      </Link>
       <NewArrival />
       <Hotdeals />
       <Testimonials />

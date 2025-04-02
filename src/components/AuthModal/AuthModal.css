@@ -15,7 +15,7 @@
 .auth-modal {
   background: white;
   padding: 2rem;
-  /* margin-top: 8rem; */
+  /* margin-bottom: 1rem; */
   border-radius: 10px;
   width: 100%;
   max-width: 400px;
@@ -59,43 +59,24 @@
 .subtitle {
   text-align: center;
   color: #666;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-size: 0.9rem;
 }
 
 .social-buttons {
   display: flex;
-  /* flex-direction: column; */
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.social-button {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background: white;
+  gap: 1rem;
+  margin-bottom: .5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 0.9rem;
-}
-
-.social-button.google:hover {
-  background-color: #f1f1f1;
 }
 
 .social-button.facebook {
-  background-color: #1877f2;
-  color: white;
   border: none;
 }
 
-.social-button.facebook:hover {
-  background-color: #166fe5;
+.social-button.instagram {
+  border: none;
 }
 
 .divider {
@@ -165,20 +146,18 @@
 
 .switch-mode {
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   font-size: 0.9rem;
   color: #666;
 }
 
-.switch-mode button {
-  background: none;
-  border: none;
+.switch-mode a {
   color: var(--theme-color);
   cursor: pointer;
   font-weight: 500;
 }
 
-.switch-mode button:hover {
+.switch-mode a:hover {
   text-decoration: underline;
 }
 

@@ -5,10 +5,17 @@ import { MdShoppingCart } from "react-icons/md";
 import PropTypes from "prop-types";
 import { useUser } from "../../context/UserContext";
 import { useCart } from "../../contexts/CartContext";
+import { useEffect } from "react";
 
 function Navbar({ setShowAuthModal, isAuthModalOpen }) {
-  const { user, logout } = useUser();
+  const { user, logout, isSessionExpired } = useUser();
   const { cartItems } = useCart();
+
+  useEffect(() => {
+    if (isSessionExpired) {
+      setShowAuthModal(true); // Show login modal when session expires
+    }
+  }, [isSessionExpired, setShowAuthModal]);
 
   return (
     <header className="header">

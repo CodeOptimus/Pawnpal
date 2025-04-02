@@ -127,18 +127,19 @@ function AuthModal({ isOpen, onClose }) {
         </form>
 
         <div className="divider">
-          <span>or</span>
+          <span>or sign in with</span>
         </div>
 
 
         <div className="social-buttons">
           <button className="social-button google">
-            <FcGoogle />
-            Continue with Google
+            <img src={assets.signup_google} alt="google icon" />
           </button>
           <button className="social-button facebook">
-            <FaFacebook />
-            Continue with Facebook
+            <img src={assets.signup_facebook} alt="facebook icon" />
+          </button>
+          <button className="social-button instagram">
+            <img src={assets.signup_instagram} alt="instagram icon" />
           </button>
         </div>
 

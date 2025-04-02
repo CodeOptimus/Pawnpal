@@ -96,6 +96,11 @@ import mtn_logo from './mtn-logo.png'
 import vodaphone_logo from './vodafonecash.png'
 import stars from './stars.png'
 
+// signup and signin icons
+import signup_instagram from './signup-insta.png'
+import signup_facebook from './signup-facebook.png'
+import signup_google from './signup-google.png'
+
 export const assets = {
     cart_icon,
     searchIcon,
@@ -164,4 +169,7 @@ export const assets = {
     vodaphone_logo,
     iphone13_for_products,
     stars,
+    signup_instagram,
+    signup_facebook,
+    signup_google,
 }

@@ -52,7 +52,7 @@ function Products({ setShowAuthModal, isAuthModalOpen }) {
       id: 5,
       name: "Iphone 13pro max",
       storage: "8gig Ram & 128Rom",
-      price: "GHC 4500.00"
+      price: "4500.00"
     },
     {
       id: 6,

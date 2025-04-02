@@ -22,8 +22,8 @@ function Footer() {
         </div>
 
         <div className="footer-content-company">
-        <h2>Company</h2>
-          <ul>
+          <h2>Company</h2>
+          <ul className="links">
             <li>Home</li>
             <li>About</li>
             <li>Blogs</li>
@@ -33,7 +33,7 @@ function Footer() {
 
         <div className="footer-content-support">
         <h2>Support</h2>
-          <ul>
+          <ul className="links">
             <li>Help</li>
             <li>Contact</li>
             <li>Chat with us</li>
@@ -46,7 +46,7 @@ function Footer() {
 
         <div className="footer-content-subscribe">
             <h2>Subscribe to our daily Blogs</h2>
-            <ul>
+            <ul className="links">
                 <li>For Latest News And Updates</li>
             </ul>
             <button>Subscribe</button>

@@ -17,7 +17,7 @@
   align-items: center;
   height: auto;
   border-radius: 15px;
-  padding: 1rem 0;
+  padding: 2rem 0;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -118,7 +118,7 @@
 }
 
 .checkout-btn {
-  background: rgba(254, 108, 44, 0.22);
+  /* background: rgba(254, 108, 44, 0.22); */
   color: rgba(254, 108, 44, 1);
   padding: 1rem;
   border: none;

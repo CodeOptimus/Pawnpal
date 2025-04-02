@@ -40,7 +40,7 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
             <h4>Order #001</h4>
           </div>
           <div className="shop-name">
-            <h4>Shop :</h4>
+            <h4>Shop Name:</h4>
             <p>Node8 Fashion Home</p>
           </div>
           <div className="invoice">
@@ -55,17 +55,19 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
 
         <div className="order-mini-summary">
           {cartItems.map((item) => (
+            <div className="order-mini">
             <div key={item.id} className="item-selected-details">
               <h3>Product</h3>
               <img src={item.image} alt={item.name} />
-              <div className="quantity-ordered">
-                <h3>Quantity</h3>
-                <p>{item.quantity}</p>
-              </div>
-              <div className="order-amount">
-                <h3>Amount</h3>
-                <p>GHC {(Number(item.price) * item.quantity).toFixed(2)}</p>
-              </div>
+            </div>
+            <div className="quantity-ordered">
+              <h3>Quantity</h3>
+              <p>{item.quantity}</p>
+            </div>
+            <div className="order-amount">
+              <h3>Amount</h3>
+              <p>GHC {(Number(item.price) * item.quantity).toFixed(2)}</p>
+            </div>
             </div>
           ))}
         </div>

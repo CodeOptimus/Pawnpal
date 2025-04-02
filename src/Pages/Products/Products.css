@@ -1,7 +1,7 @@
 .products-container {
   padding-top: 10rem;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 4rem;
 }
 
 .products-header {
@@ -28,9 +28,9 @@
 }
 
 .product {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 2rem;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   border-radius: 5px;
@@ -39,7 +39,8 @@
 .product-details {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 3rem;
+  height: stretch;
 }
 
 .detail h2 {
@@ -67,7 +68,6 @@ button {
 }
 
 .price button:disabled {
-  /* background: #28a745; */
   cursor: default;
 }
 

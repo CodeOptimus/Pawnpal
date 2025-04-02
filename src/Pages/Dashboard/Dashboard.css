@@ -62,16 +62,16 @@
   border: none;
   outline: none;
   cursor: pointer;
-  color: #ff0000; /* Red color for warning/danger */
+  color: #ff0000; 
   font-size: 0.9rem;
   padding: 0.5rem 1rem;
-  width: calc(100% - 4rem); /* Full width minus margins */
+  width: calc(100% - 4rem); 
   text-align: center;
   transition: all 0.3s ease;
 }
 
 .navigation button:hover {
-  background-color: #fff1f1; /* Light red background on hover */
+  background-color: #fff1f1; 
   border-radius: 5px;
 }
 
@@ -168,13 +168,13 @@
   color: white;
 }
 
-.item-details .item {
+.items-list .item-details .item {
   display: flex;
   gap: 2rem;
   flex: 1;
 }
 
-.item-details .item img {
+.items-list img {
   /* width: 150px; */
   /* height: 150px; */
   object-fit: cover;

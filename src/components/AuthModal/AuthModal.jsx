@@ -4,14 +4,13 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { useUser } from "../../context/UserContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./AuthModal.css";
+import { assets } from "../../assets/assets";
 
 function AuthModal({ isOpen, onClose }) {
-  const [isSignUp, setIsSignUp] = useState(false);
   const [contactType, setContactType] = useState("email");
   const [formData, setFormData] = useState({
-    name: "",
     contact: "",
     password: "",
   });
@@ -50,10 +49,7 @@ function AuthModal({ isOpen, onClose }) {
 
     // Here you would typically make an API call to authenticate
     // For now, we'll simulate a successful login
-    const [firstName, lastName] = (formData.name || "User Name").split(" ");
     const userData = {
-      firstName,
-      lastName,
       contact: formData.contact,
       profilePic: "https://via.placeholder.com/40", // Default profile pic
     };
@@ -70,28 +66,10 @@ function AuthModal({ isOpen, onClose }) {
           <IoMdClose />
         </button>
 
-        <h2>{isSignUp ? "Create Account" : "Welcome To Pawnpal"}</h2>
-        <p className="subtitle">
-          {isSignUp
-            ? "Sign up to get started with PawnPal"
-            : "Sign in to continue to PawnPal"}
-        </p>
+        <h2>Welcome To Pawnpal</h2>
+        <p className="subtitle">Sign in to continue to PawnPal</p>
 
         <form className="auth-form" onSubmit={handleSubmit}>
-          {isSignUp && (
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input
-                type="text"
-                id="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="Enter your full name"
-                required={isSignUp}
-              />
-            </div>
-          )}
-
           <div className="form-group">
             <label htmlFor="contact">Email/Phone Number</label>
             <input
@@ -122,7 +100,7 @@ function AuthModal({ isOpen, onClose }) {
           </div>
 
           <button type="submit" className="submit-button">
-            {isSignUp ? "Sign Up" : "Sign In"}
+            Sign In
           </button>
         </form>
 
@@ -130,25 +108,21 @@ function AuthModal({ isOpen, onClose }) {
           <span>or sign in with</span>
         </div>
 
-
         <div className="social-buttons">
-          <button className="social-button google">
-            <img src={assets.signup_google} alt="google icon" />
-          </button>
-          <button className="social-button facebook">
-            <img src={assets.signup_facebook} alt="facebook icon" />
-          </button>
-          <button className="social-button instagram">
-            <img src={assets.signup_instagram} alt="instagram icon" />
-          </button>
+          <img src={assets.signup_google} alt="google icon" />
+          <img src={assets.signup_facebook} alt="facebook icon" />
+          <img src={assets.signup_instagram} alt="instagram icon" />
         </div>
 
-        
         <p className="switch-mode">
-          {isSignUp ? "Already have an account? " : "Don't have an account? "}
-          <button onClick={() => setIsSignUp(!isSignUp)}>
-            {isSignUp ? "Sign In" : "Sign Up"}
-          </button>
+          New Here?{" "}
+          <Link 
+            to="/signup" 
+            onClick={onClose}
+            style={{ cursor: 'pointer', color: '#FE6C2C', textDecoration: 'none' }}
+          >
+            Sign Up
+          </Link>
         </p>
       </div>
     </div>

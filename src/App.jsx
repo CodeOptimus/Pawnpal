@@ -11,6 +11,7 @@ import { UserProvider } from "./context/UserContext";
 import Checkout from './Pages/Checkout/Checkout';
 import { CartProvider } from './contexts/CartContext';
 import Payment from './Pages/Payment/Payment';
+import SignUp from './Pages/SignUp/SignUp';
 
 function App() {
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -75,6 +76,7 @@ function App() {
                 />
               } 
             />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

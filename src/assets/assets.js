@@ -100,6 +100,8 @@ import stars from './stars.png'
 import signup_instagram from './signup-insta.png'
 import signup_facebook from './signup-facebook.png'
 import signup_google from './signup-google.png'
+import payment_mastercard from './Mastercard-icon.png'
+import payment_visa from './visa-icon.png'
 
 export const assets = {
     cart_icon,
@@ -172,4 +174,6 @@ export const assets = {
     signup_instagram,
     signup_facebook,
     signup_google,
+    payment_mastercard,
+    payment_visa,
 }

@@ -1,0 +1,199 @@
+.payment-container {
+  max-width: 1000px;
+  margin: 10rem auto;
+  padding: 0 1rem;
+}
+
+.payment-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.payment-container .back-btn {
+  margin-left: -2rem;
+}
+
+.payment-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+
+.payment-methods {
+  background: white;
+  border-radius: 12px;
+}
+
+.payment-methods h3 {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.method-selector {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.method-btn {
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 8px;
+  color: #666;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.method-btn.active {
+  border-color: var(--theme-color);
+  color: var(--theme-color);
+}
+
+.method-icon {
+  display: block;
+}
+
+.forms-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 1rem;
+  margin-bottom: 4rem;
+}
+
+.form-group label {
+  font-size: .9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group label span {
+  font-size: .8rem;
+  font-weight: 400;
+  color: #555;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.card-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+
+.pay-now-btn {
+  background: var(--theme-color);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.pay-now-btn:hover {
+  background: #0056b3;
+}
+
+.pay-now-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+
+.order-summary {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+  border: 1px solid #888;
+  height: fit-content;
+  font-size: .8rem;
+}
+
+.order-summary h2 {
+  font-size: .9rem;
+  color: rgba(69, 69, 69, 1);
+}
+
+.order-summary .final-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+  padding: 1rem 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.order-summary .final-summary .theme {
+  margin-bottom: .8rem;
+  font-weight: 500;
+  color: rgba(69, 69, 69, 1);
+  font-size: .8rem;
+}
+
+.total-amount .subtotal, .delivery-fee, .order-total {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(69, 69, 69, 1);
+  font-weight: 500;
+}
+
+.sub-total {
+  display: block;
+  text-align: right;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.total-amount {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.total-amount > div {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.order-total {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .payment-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .method-selector {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-details {
+    grid-template-columns: 1fr;
+  }
+} 

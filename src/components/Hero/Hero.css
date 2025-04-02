@@ -2,7 +2,7 @@
   margin-top: 10rem;
 }
 
-ul {
+.item-list ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -14,17 +14,17 @@ ul {
   margin-right: auto;
 }
 
-ul li {
+.item-list ul li {
   display: inline-block;
 }
 
-ul li a {
+.item-list ul li a {
   text-decoration: none;
   color: var(--text-color);
   transition: color 0.3s;
 }
 
-ul li:hover {
+.item-list ul li:hover {
   color: var(--theme-color);
 }
 
@@ -50,7 +50,7 @@ ul li:hover {
     max-width: 90%;
   }
 
-  ul {
+  .item-list ul {
     display: flex;
   }
   

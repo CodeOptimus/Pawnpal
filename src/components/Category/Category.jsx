@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { assets } from "../../assets/assets";
 import "./Category.css";
+import { Link } from 'react-router-dom';
 
 
 const CategoryItem = ({ image, alt, name }) => (
-  <div className="category-item">
+  <Link to="/products" className="category-item">
     <img src={image} alt={alt} />
     <p className="item-name">{name}</p>
-  </div>
+  </Link>
 );
 
 const FlashSalesItem = ({ image, alt }) => (
@@ -63,7 +64,7 @@ function Category() {
 
   
   return (
-    <>
+    <div className="category-section">
       <div className="category">
         <h2 className="category-heading">Category of Items on Sale</h2>
         <p className="category-products">
@@ -71,10 +72,15 @@ function Category() {
         </p>
 
         <div className="category-container">
-        {categories.map((item, index) => (
-          <CategoryItem key={index} {...item} />
-        ))}
-      </div>
+          {categories.map((item, index) => (
+            <CategoryItem 
+              key={index}
+              image={item.image}
+              alt={item.alt}
+              name={item.name}
+            />
+          ))}
+        </div>
 
         <div className="flash-sales">
           <div className="flash-sale-orange-div">
@@ -115,8 +121,8 @@ function Category() {
               Extravaganza!
             </h1>
             <p>
-              Shop Headset From Jumia Ghana @Lowest Prices - <br />
-              Find Headset Offers & Deals from Jumia with <br />
+              Shop Headset From Jumia Ghana @Lowest Prices - <br />
+              Find Headset Offers & Deals from Jumia with <br />
               Secure Payment - Fast Delivery - Free Returns.
             </p>
             <h2>50% OFF</h2>
@@ -138,7 +144,7 @@ function Category() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

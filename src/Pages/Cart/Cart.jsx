@@ -5,8 +5,15 @@ import Footer from "../../components/Footer/Footer";
 // import ItemCard from "../../components/ItemCard/ItemCard";
 import "./Cart.css";
 import PropTypes from "prop-types";
+import { useCart } from "../../contexts/CartContext";
 
 function Cart({ setShowAuthModal, isAuthModalOpen }) {
+  const { cartItems, removeFromCart } = useCart();
+
+  const calculateTotal = () => {
+    return cartItems.reduce((total, item) => total + Number(item.price), 0);
+  };
+
   return (
     <>
       <Navbar setShowAuthModal={setShowAuthModal} isAuthModalOpen={isAuthModalOpen} />
@@ -47,17 +54,51 @@ function Cart({ setShowAuthModal, isAuthModalOpen }) {
           </li>
         </ul>
       </div>
+      
       <div className="cart-container">
-        <div className="cart-header">
-          <img src={assets.cart_image} alt="" />
-          <p>Your cart is empty!</p>
-          <p className="info">
-            Browse our categories and discover our best deals!
-          </p>
-          <Link to="/" className="start-shopping-cart">
-            Start Shopping
-          </Link>
-        </div>
+        {cartItems.length === 0 ? (
+          <div className="cart-header">
+            <img src={assets.cart_image} alt="" />
+            <p>Your cart is empty!</p>
+            <p className="info">
+              Browse our categories and discover our best deals!
+            </p>
+            <Link to="/products" className="start-shopping-cart">
+              Continue Shopping
+            </Link>
+          </div>
+        ) : (
+          <>
+            <div className="cart-items">
+              {cartItems.map((item) => (
+                <div key={item.id} className="cart-item">
+                  <div className="cart-item-image">
+                    <img src={item.image} alt={item.name} />
+                  </div>
+                  <div className="cart-item-details">
+                    <div className="item-details">
+                      <h3>{item.name} <br /> <span>{item.storage}</span></h3>
+                      <div className="item-price">
+                        <p>{item.price}</p>
+                      </div>
+                    </div>
+                    <div className="buttons">
+                      <button 
+                        className="remove-btn"
+                        onClick={() => removeFromCart(item.id)}
+                      >
+                        Remove
+                      </button>
+                      <Link to="/checkout" className="checkout-btn">
+                        <button>Checkout</button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
       <Footer />
     </>

@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import { MdShoppingCart } from "react-icons/md";
 import PropTypes from "prop-types";
 import { useUser } from "../../context/UserContext";
+import { useCart } from "../../contexts/CartContext";
 
 function Navbar({ setShowAuthModal, isAuthModalOpen }) {
   const { user, logout } = useUser();
-
-  if (isAuthModalOpen) return null;
+  const { cartItems } = useCart();
 
   return (
     <header className="header">
@@ -53,12 +53,14 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
               <button className="btn-search">Search</button>
               {user ? (
                 <div className="user-info">
-                  <img 
-                    src={user.profilePic} 
-                    alt="Profile" 
-                    className="profile-pic"
-                  />
-                  <span>Hi, {user.firstName}</span>
+                  <Link to="/dashboard" className="profile-link">
+                    <img 
+                      src={user.profilePic} 
+                      alt="Profile" 
+                      className="profile-pic"
+                    />
+                    <span>Hi, {user.firstName}</span>
+                  </Link>
                 </div>
               ) : (
                 <button
@@ -93,6 +95,7 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
                 <div className="nav-cart">
                   <MdShoppingCart />
                   <p>Cart</p>
+                  {cartItems.length > 0 && <span className="cart-indicator">{cartItems.length}</span>}
                 </div>
               </Link>
             </div>

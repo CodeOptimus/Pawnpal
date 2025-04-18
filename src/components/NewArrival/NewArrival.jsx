@@ -16,23 +16,23 @@ function NewArrival() {
         <div className="new-arrival-container">
           <div className="first-set">
             <div className="new-arrival-item">
-              <img src={assets.yellow_arrival} alt="yellow nike" />
+              <img src={assets.yellow_arrival} alt="yellow nike" className="yellow_arrival"/>
             </div>
             <div className="new-arrival-item">
-              <img src={assets.blue_arrival} alt="blue nike" />
+              <img src={assets.blue_arrival} alt="blue nike" className="blue_arrival"/>
             </div>
           </div>
 
           <div className="new-arrival-item">
-            <img src={assets.red_arrival} alt="red nike" />
+            <img src={assets.red_arrival} alt="red nike" className="red_arrival"/>
           </div>
 
           <div className="second-set">
             <div className="new-arrival-item">
-              <img src={assets.white_arrival} alt="white nike" />
+              <img src={assets.white_arrival} alt="white nike" className="white_arrival"/>
             </div>
             <div className="new-arrival-item">
-              <img src={assets.air_arrival} alt="laptop" />
+              <img src={assets.air_arrival} alt="laptop" className="air_arrival"/>
             </div>
           </div>
         </div>

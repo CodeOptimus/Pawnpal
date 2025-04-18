@@ -38,7 +38,6 @@
     margin: 0 auto;
 }
 
-
 /* media queries */
 /* @media (min-width: 320px) and (max-width: 480px) {
 
@@ -52,6 +51,11 @@
 
   .item-list ul {
     display: flex;
+    margin-top: 20rem;
+  }
+
+  .slider-container {
+    margin-top: 3rem;
   }
   
 }

@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10000;
+  z-index: 1000;
 }
 
 .header .header-top {
@@ -29,6 +29,10 @@
 .header .header-top .cto {
   display: flex;
   align-items: center;
+}
+
+.tease {
+  text-wrap: nowrap;
 }
 
 .header-main .container {
@@ -185,22 +189,23 @@
 @media (max-width: 1050px) {
   .header-top {
     display: flex;
+    flex-direction: column;
     gap: 5px;
   }
 
   .header-main .search-box {
     display: flex;
+    flex-direction: column;
   }
 
   .header-main .buttons {
     margin-left: 12.5rem;
     margin-top: 1rem;
-    display: flex;
-    align-items: center;
   }
 
   .header-main .container {
     display: flex;
+    flex-direction: column;
   }
 
   .header-main .container .search-box .search_icon {
@@ -248,3 +253,5 @@
   position: relative;
   display: inline-block;
 }
+
+

@@ -47,13 +47,17 @@ function AuthModal({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Here you would typically make an API call to authenticate
-    // For now, we'll simulate a successful login
+    // Create user data object
     const userData = {
       contact: formData.contact,
-      profilePic: "https://via.placeholder.com/40", // Default profile pic
+      profilePic: "https://via.placeholder.com/40",
+      isAuthenticated: true, // Add this flag
     };
 
+    // Store in localStorage
+    localStorage.setItem("userData", JSON.stringify(userData));
+
+    // Login using context
     login(userData);
     onClose();
     navigate("/");
@@ -116,10 +120,14 @@ function AuthModal({ isOpen, onClose }) {
 
         <p className="switch-mode">
           New Here?{" "}
-          <Link 
-            to="/signup" 
+          <Link
+            to="/signup"
             onClick={onClose}
-            style={{ cursor: 'pointer', color: '#FE6C2C', textDecoration: 'none' }}
+            style={{
+              cursor: "pointer",
+              color: "#FE6C2C",
+              textDecoration: "none",
+            }}
           >
             Sign Up
           </Link>

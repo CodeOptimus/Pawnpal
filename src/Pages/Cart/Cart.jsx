@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
@@ -9,9 +9,18 @@ import { useCart } from "../../contexts/CartContext";
 
 function Cart({ setShowAuthModal, isAuthModalOpen }) {
   const { cartItems, removeFromCart } = useCart();
+  const navigate = useNavigate();
 
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + Number(item.price), 0);
+  const handleSingleCheckout = (item) => {
+    // Store single item for checkout
+    localStorage.setItem('checkoutItems', JSON.stringify([item]));
+    navigate('/checkout');
+  };
+
+  const handleCheckoutAll = () => {
+    // Store all items for checkout
+    localStorage.setItem('checkoutItems', JSON.stringify(cartItems));
+    navigate('/checkout');
   };
 
   return (
@@ -89,14 +98,23 @@ function Cart({ setShowAuthModal, isAuthModalOpen }) {
                       >
                         Remove
                       </button>
-                      <Link to="/checkout" className="checkout-btn">
-                        <button>Checkout</button>
-                      </Link>
+                      <button 
+                        className="checkout-btn"
+                        onClick={() => handleSingleCheckout(item)}
+                      >
+                        Checkout This Item
+                      </button>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
+            <button 
+              onClick={handleCheckoutAll}
+              className="checkout-all-btn"
+            >
+              Checkout All Items ({cartItems.length})
+            </button>
           </>
         )}
       </div>

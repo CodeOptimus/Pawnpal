@@ -78,3 +78,78 @@
     bottom: 1.5rem;
     left: -5rem;
 }
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    .hot-deals{
+        overflow-x: hidden;
+    }
+  
+    /* .boards{
+        margin-left: -10rem;
+    } */
+
+    .boards img{
+        margin-left: -10rem;
+    }
+
+    .maze-board{
+        display: none;
+    }
+
+    .board{
+        /* width: 350px; */
+    }
+    
+    .toyota img{
+        /* max-width: 300px; */
+        margin-left: -11rem;
+    }
+   
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+.boards{
+    margin-left: -10rem;
+}
+
+.board{
+    max-width: 350px;
+}
+
+.maze-board{
+    display: none;
+}
+
+.toyota img{
+    max-width: 400px;
+    margin-left: -7rem;
+}
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .deal-tails{
+        z-index: 1000;
+    }
+
+    .deal-tails h1, p{
+        margin-left: 2rem;
+    }
+  
+    .maze-board{
+        display: none;
+    }
+
+    .toyota img{
+        z-index: 1;
+        margin-left: -23rem;
+        max-width: 450px;
+    }
+
+    .board{
+        display: none;
+    }
+    
+}

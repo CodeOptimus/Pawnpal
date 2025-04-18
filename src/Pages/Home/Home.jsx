@@ -14,15 +14,15 @@ function Home({ setShowAuthModal }) {
     <>
       <Navbar setShowAuthModal={setShowAuthModal} />
       <Hero />
-      <Category />
+      {/* <Category /> */}
       <Link to="/products" className="category-item">
       
       </Link>
       <NewArrival />
       <Hotdeals />
-      <Testimonials />
-      <Sponsors />
-      <Footer />
+      {/* <Testimonials /> */}
+      {/* <Sponsors />
+      <Footer /> */}
     </>
   );
 }

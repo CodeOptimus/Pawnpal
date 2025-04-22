@@ -7,7 +7,7 @@ import { MdMarkEmailUnread, MdSms } from "react-icons/md";
 import { assets } from "../../assets/assets";
 import "./Signup.css";
 
-function Signup() {
+function SignUp() {
   const navigate = useNavigate();
   const { login } = useUser();
   const [step, setStep] = useState(1);
@@ -462,4 +462,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default SignUp;

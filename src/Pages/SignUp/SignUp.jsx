@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { MdMarkEmailUnread, MdSms } from "react-icons/md";
-
 import { assets } from "../../assets/assets";
-import "./Signup.css";
+import "./SignUp.css";
 
 function SignUp() {
   const navigate = useNavigate();

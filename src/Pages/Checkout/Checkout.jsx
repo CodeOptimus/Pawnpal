@@ -1,20 +1,40 @@
-import { useState, useContext } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useState, useContext, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import PropTypes from "prop-types";
 import "./Checkout.css";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoLocationOutline } from "react-icons/io5";
+import { BsTruck } from "react-icons/bs";
+
+
+
 
 function Checkout({ setShowAuthModal, isAuthModalOpen }) {
   const navigate = useNavigate();
   const { cartItems } = useCart();
-  const [deliveryMethod, setDeliveryMethod] = useState('pickup');
+  const [deliveryMethod, setDeliveryMethod] = useState("pickup");
+  const [checkoutItems, setCheckoutItems] = useState([]);
+
+  useEffect(() => {
+    // Get items from localStorage
+    const items = JSON.parse(localStorage.getItem("checkoutItems") || "[]");
+    if (items.length === 0) {
+      navigate("/cart");
+      return;
+    }
+    setCheckoutItems(items);
+  }, [navigate]);
 
   // Calculate totals
-  const itemsTotal = cartItems.reduce((total, item) => total + (Number(item.price) * item.quantity), 0);
-  const deliveryCharge = deliveryMethod === 'doorstep' ? 50 : 0;
-  const serviceCharge = 0; // You can modify this if needed
+  const itemsTotal = cartItems.reduce(
+    (total, item) => total + Number(item.price) * item.quantity,
+    0
+  );
+  const deliveryCharge = deliveryMethod === "doorstep" ? 15 : 0;
+  const serviceCharge = 0;
   const orderTotal = itemsTotal + deliveryCharge + serviceCharge;
 
   const handleBack = () => {
@@ -27,11 +47,24 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
 
   return (
     <>
-      <Navbar setShowAuthModal={setShowAuthModal} isAuthModalOpen={isAuthModalOpen} />
+      <Navbar
+        setShowAuthModal={setShowAuthModal}
+        isAuthModalOpen={isAuthModalOpen}
+      />
 
       <div className="checkout-container">
+        {/* <div className="back-section">
+          <span onClick={handleBack} className="back-btn">
+            <IoArrowBack className="back-arrow" />
+            Back
+          </span>
+        </div> */}
+
         <div className="top">
-          <span onClick={handleBack} style={{ cursor: 'pointer' }}>Back</span>
+          <span onClick={handleBack} style={{ cursor: "pointer", display: "flex", alignItems: "center"}}>
+          <IoIosArrowBack />
+            Back
+          </span>
           <span>Checkout</span>
         </div>
 
@@ -54,20 +87,23 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
         </div>
 
         <div className="order-mini-summary">
-          {cartItems.map((item) => (
-            <div className="order-mini">
+          {checkoutItems.map((item) => (
             <div key={item.id} className="item-selected-details">
-              <h3>Product</h3>
-              <img src={item.image} alt={item.name} />
-            </div>
-            <div className="quantity-ordered">
-              <h3>Quantity</h3>
-              <p>{item.quantity}</p>
-            </div>
-            <div className="order-amount">
-              <h3>Amount</h3>
-              <p>GHC {(Number(item.price) * item.quantity).toFixed(2)}</p>
-            </div>
+              <div className="product0">
+                <h3>Item</h3>
+                <div className="item-image">
+                  <img src={item.image} alt={item.name} />
+                  <p>{item.name} <br /> <span>{item.storage}</span></p>
+                </div>
+              </div>
+              <div className="quantity-ordered">
+                <h3>Quantity</h3>
+                <p>{item.quantity}</p>
+              </div>
+              <div className="order-amount">
+                <h3>Amount</h3>
+                <p>GHC {item.price}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -75,9 +111,10 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
         <div className="checkout-grid">
           <div className="first-section">
             <form>
-              <label htmlFor="deliveryMethod">Select a Delivery Method</label><br />
-              <select 
-                id="deliveryMethod" 
+              <label htmlFor="deliveryMethod">Select a Delivery Method</label>
+              <br />
+              <select
+                id="deliveryMethod"
                 value={deliveryMethod}
                 onChange={handleDeliveryMethodChange}
               >
@@ -97,16 +134,24 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
                 </div>
                 <div className="operation-hours">
                   <h3>Operating Hours</h3>
-                  <p>Opens From <span>9:00am - 10:00pm</span></p>
+                  <p>
+                    Opens From <span>9:00am - 10:00pm</span>
+                  </p>
                 </div>
                 <div className="contact-information">
                   <h3>Contact Information</h3>
-                  <p><span>Email</span>: pawnpal@ho.com</p>
-                  <p><span>Contact Number</span>: 0548513492</p>
+                  <p>
+                    <span>Email</span>: pawnpal@ho.com
+                  </p>
+                  <p>
+                    <span>Contact Number</span>: 0548513492
+                  </p>
                 </div>
                 <div className="agent">
                   <h3>Contact Person Info</h3>
-                  <p><span>Number</span>: 0548513492</p>
+                  <p>
+                    <span>Number</span>: 0548513492
+                  </p>
                 </div>
               </div>
 
@@ -114,17 +159,19 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
                 <h3>Confirmation Process</h3>
                 <div className="confirmation-process-info">
                   <p>
-                  For a seamless and smooth confirmation and pick up,<br /> 
-                  the following will be required before pick up. 
+                    For a seamless and smooth confirmation and pick up,
+                    <br />
+                    the following will be required before pick up.
                   </p>
                   <ul>
-                    <li>A printed or digital Invoice (order number, order details)</li>
+                    <li>
+                      A printed or digital Invoice (order number, order details)
+                    </li>
                     <li>A valid ID</li>
                     <li>Proof of Payment</li>
                   </ul>
                 </div>
               </div>
-              
             </div>
           </div>
 
@@ -135,20 +182,32 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
               <div className="final-summary quantity-and-price">
                 <div className="number-of-items">
                   <p className="theme">Total Number of Items</p>
-                  <p>{cartItems.reduce((total, item) => total + item.quantity, 0)} Items</p>
+                  <p>
+                    {cartItems.reduce(
+                      (total, item) => total + item.quantity,
+                      0
+                    )}{" "}
+                    Items
+                  </p>
                 </div>
                 <div className="selected-item-price">
                   <p className="theme">Price</p>
                   <p>GHC {itemsTotal.toFixed(2)}</p>
                 </div>
               </div>
-              <span className='sub-total'>GHC {itemsTotal.toFixed(2)}</span>
+              <span className="sub-total">GHC {itemsTotal.toFixed(2)}</span>
 
               <div className="final-summary delivery-charges">
                 <div className="delivery-method">
                   <p className="theme">Delivery Method</p>
-                  <p>{deliveryMethod === 'pickup' ? 'Pick Up' : 'Doorstep'}</p>
-                  <p>3517 H. Dome Guinness, Ho, Ghana</p>
+                  <span className="delivery-method-info">
+                  <BsTruck size={20}/>
+                  <p> {deliveryMethod === "pickup" ? "Pick Up" : "Doorstep"}</p>
+                  </span>
+                  <span className="delivery-method-info">
+                  <IoLocationOutline size={20}/> 
+                  <p>3517 H. Dome Guinness, <br /> Ho, Ghana</p>
+                  </span>
                 </div>
                 <div className="delivery-charges">
                   <p className="theme">Charges</p>
@@ -174,9 +233,9 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
             </div>
           </div>
         </div>
-        <button 
+        <button
           className="proceed-to-payment-btn"
-          onClick={() => navigate('/payment')}
+          onClick={() => navigate("/payment")}
         >
           Proceed to Payment
         </button>
@@ -191,4 +250,4 @@ Checkout.propTypes = {
   isAuthModalOpen: PropTypes.bool.isRequired,
 };
 
-export default Checkout; 
+export default Checkout;

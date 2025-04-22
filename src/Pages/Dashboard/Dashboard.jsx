@@ -1,4 +1,4 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import { MdPerson } from "react-icons/md";
 import { RiHome7Fill } from "react-icons/ri";
@@ -17,9 +17,13 @@ import "./Dashboard.css";
 import ItemCard from "../../components/ItemCard/ItemCard";
 import PropTypes from "prop-types";
 import { useUser } from "../../context/UserContext";
+import { useState } from "react";
+import LogoutPopup from "../../components/LogoutPopup/LogoutPopup";
 
 function Dashboard({ setShowAuthModal, isAuthModalOpen }) {
-  const { user } = useUser();
+  const { user, logout } = useUser();
+  const navigate = useNavigate();
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
 
   if (!user) {
     return <Navigate to="/" replace />;
@@ -27,7 +31,7 @@ function Dashboard({ setShowAuthModal, isAuthModalOpen }) {
 
   const purchasedItems = [
     {
-      image: assets.dashboard_fridge || '',
+      image: assets.dashboard_fridge || "",
       itemName: "Table-Top Fridge - Nexus 250 - Silver",
       seller: "Christopher Doe",
       shop: "KK House Electronics",
@@ -38,9 +42,25 @@ function Dashboard({ setShowAuthModal, isAuthModalOpen }) {
     },
   ];
 
+  const handleLogoutClick = () => {
+    setShowLogoutPopup(true);
+  };
+
+  const handleLogoutConfirm = () => {
+    logout();
+    navigate("/");
+  };
+
+  const handleLogoutCancel = () => {
+    setShowLogoutPopup(false);
+  };
+
   return (
     <>
-      <Navbar setShowAuthModal={setShowAuthModal} isAuthModalOpen={isAuthModalOpen} />
+      <Navbar
+        setShowAuthModal={setShowAuthModal}
+        isAuthModalOpen={isAuthModalOpen}
+      />
       <div className="dashboard-container">
         <div className="navigation">
           <p>
@@ -58,10 +78,15 @@ function Dashboard({ setShowAuthModal, isAuthModalOpen }) {
               <IoBagHandleOutline />
               Orders
             </li>
-            <li>
-              <SiSellfy />
-              Sell
-            </li>
+            <Link
+              to="/seller-signup"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <li>
+                <SiSellfy />
+                Sell
+              </li>
+            </Link>
             <li>
               <IoHelpCircle />
               Help
@@ -86,27 +111,14 @@ function Dashboard({ setShowAuthModal, isAuthModalOpen }) {
           </ul>
 
           <button>Close Account</button>
-          <p>
+          <p
+            onClick={handleLogoutClick}
+            style={{ cursor: "pointer" }}
+            className="logout-option"
+          >
             <RiLogoutCircleRLine />
             Logout
           </p>
-        </div>
-
-        <div className="seller-profile">
-          <div className="details">
-            <img src={assets.dashboard_profile} alt="profile" />
-            <p>Christopher Doe</p>
-            <p>Seller</p>
-          </div>
-          <div className="liberal">
-            <p>
-              <BiSolidEditAlt /> Edit Profile
-            </p>
-            <p>
-              <BiSolidCoupon />
-              Coupon
-            </p>
-          </div>
         </div>
 
         <div className="items-list">
@@ -120,6 +132,13 @@ function Dashboard({ setShowAuthModal, isAuthModalOpen }) {
         <img src={assets.Phone} alt="" />
       </div>
       <Footer />
+
+      {showLogoutPopup && (
+        <LogoutPopup
+          onConfirm={handleLogoutConfirm}
+          onCancel={handleLogoutCancel}
+        />
+      )}
     </>
   );
 }

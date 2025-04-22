@@ -55,6 +55,11 @@
   border-radius: 5px;
   color: var(--gen-color-2);
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.8rem;
 }
 
 .header-main .buttons {
@@ -134,13 +139,10 @@
 .user-info {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: var(--theme-color);
-  border-radius: 5px;
-  color: white;
+  gap: 0.8rem;
+  padding: 0.5rem;
+  color: var(--gen-color-1);
   margin-left: 40px;
-  height: 41px;
 }
 
 .profile-pic {
@@ -148,12 +150,18 @@
   height: 25px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--theme-color);
 }
 
 .user-info span {
   font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
+}
+
+.user-profile:hover {
+  /* text-decoration: none; */
+  color: var(--theme-color);
 }
 
 .nav-cart {
@@ -179,7 +187,6 @@
   position: relative;
   display: inline-block;
 }
-
 
 /* media queries */
 @media (max-width: 1050px) {
@@ -247,4 +254,28 @@
 .cart-link {
   position: relative;
   display: inline-block;
+}
+
+/* Add this for the sign-in button */
+.submit-button {
+  width: 100%;
+  background-color: var(--theme-color);
+  color: var(--gen-color-2);
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.sell-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sell-link:hover span {
+  color: var(--theme-color);
 }

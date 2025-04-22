@@ -60,10 +60,7 @@ function Testimonials() {
                 <h3>Customer Review</h3>
                 <p>
                   I recently purchased a product and I couldn't be happier with my
-                  experience! The quality is outstanding, and it exceeded all my
-                  expectations. The customer service team was also incredibly
-                  helpful and responsive. I highly recommend this site to anyone
-                  looking for a reliable and top-notch product. Five stars!
+                  experience!
                 </p>
               </div>
               <div className="profile">

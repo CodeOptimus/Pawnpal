@@ -4,7 +4,7 @@ import './TopSelling.css'
 
 function TopSelling() {
     return (
-        <div>
+        <div className="top-selling-container">
             <h1>Top Selling Items</h1>
             <div className="top-selling-items">
                 <div className="top-selling-item">

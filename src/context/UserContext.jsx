@@ -5,24 +5,37 @@ const UserContext = createContext();
 
 const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 minutes in milliseconds
 const MAX_REFRESHES = 5; // Maximum number of refreshes allowed
-const REFRESH_COUNT_KEY = 'refreshCount';
-const LAST_ACTIVITY_KEY = 'lastActivity';
+const REFRESH_COUNT_KEY = "refreshCount";
+const LAST_ACTIVITY_KEY = "lastActivity";
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
+
+  // Check localStorage when app loads
+  useEffect(() => {
+    const storedUser = localStorage.getItem("userData");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   useEffect(() => {
     // Load user data and check session on mount
     const storedUser = localStorage.getItem("user");
     const lastActivity = localStorage.getItem(LAST_ACTIVITY_KEY);
-    const refreshCount = parseInt(localStorage.getItem(REFRESH_COUNT_KEY) || '0');
+    const refreshCount = parseInt(
+      localStorage.getItem(REFRESH_COUNT_KEY) || "0"
+    );
 
     // Increment refresh count
     localStorage.setItem(REFRESH_COUNT_KEY, (refreshCount + 1).toString());
 
     if (storedUser) {
       // Check if session has timed out
-      if (lastActivity && Date.now() - parseInt(lastActivity) > SESSION_TIMEOUT) {
+      if (
+        lastActivity &&
+        Date.now() - parseInt(lastActivity) > SESSION_TIMEOUT
+      ) {
         logout(); // Session timeout
         return;
       }
@@ -47,10 +60,10 @@ export function UserProvider({ children }) {
     };
 
     // Update last activity on user interaction
-    window.addEventListener('mousemove', handleActivity);
-    window.addEventListener('keydown', handleActivity);
-    window.addEventListener('click', handleActivity);
-    window.addEventListener('scroll', handleActivity);
+    window.addEventListener("mousemove", handleActivity);
+    window.addEventListener("keydown", handleActivity);
+    window.addEventListener("click", handleActivity);
+    window.addEventListener("scroll", handleActivity);
 
     // Check session status periodically
     const intervalId = setInterval(() => {
@@ -59,10 +72,10 @@ export function UserProvider({ children }) {
 
     return () => {
       // Cleanup
-      window.removeEventListener('mousemove', handleActivity);
-      window.removeEventListener('keydown', handleActivity);
-      window.removeEventListener('click', handleActivity);
-      window.removeEventListener('scroll', handleActivity);
+      window.removeEventListener("mousemove", handleActivity);
+      window.removeEventListener("keydown", handleActivity);
+      window.removeEventListener("click", handleActivity);
+      window.removeEventListener("scroll", handleActivity);
       clearInterval(intervalId);
     };
   }, [user]);
@@ -83,11 +96,12 @@ export function UserProvider({ children }) {
   const login = (userData) => {
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
-    localStorage.setItem(REFRESH_COUNT_KEY, '0'); // Reset refresh count
+    localStorage.setItem(REFRESH_COUNT_KEY, "0"); // Reset refresh count
     updateLastActivity();
   };
 
   const logout = () => {
+    localStorage.removeItem("userData");
     setUser(null);
     localStorage.removeItem("user");
     localStorage.removeItem(LAST_ACTIVITY_KEY);
@@ -95,12 +109,15 @@ export function UserProvider({ children }) {
   };
 
   return (
-    <UserContext.Provider value={{ 
-      user, 
-      login, 
-      logout,
-      isSessionExpired: !user && localStorage.getItem(LAST_ACTIVITY_KEY) !== null 
-    }}>
+    <UserContext.Provider
+      value={{
+        user,
+        login,
+        logout,
+        isSessionExpired:
+          !user && localStorage.getItem(LAST_ACTIVITY_KEY) !== null,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
@@ -110,4 +127,6 @@ UserProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const useUser = () => useContext(UserContext); 
+export function useUser() {
+  return useContext(UserContext);
+}

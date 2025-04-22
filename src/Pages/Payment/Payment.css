@@ -69,13 +69,13 @@
 }
 
 .form-group label {
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #333;
 }
 
 .form-group label span {
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 400;
   color: #555;
 }
@@ -88,12 +88,16 @@
   font-size: 1rem;
 }
 
-.card-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+.form-group input {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
+.card-details {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 6.5rem;
+}
 
 .pay-now-btn {
   background: var(--theme-color);
@@ -117,37 +121,38 @@
   cursor: not-allowed;
 }
 
-
 .order-summary {
   background: #fff;
   padding: 2rem;
   border-radius: 5px;
   border: 1px solid #888;
   height: fit-content;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .order-summary h2 {
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: rgba(69, 69, 69, 1);
 }
 
 .order-summary .final-summary {
   display: flex;
   justify-content: space-between;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   padding: 1rem 0;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .order-summary .final-summary .theme {
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
   font-weight: 500;
   color: rgba(69, 69, 69, 1);
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
-.total-amount .subtotal, .delivery-fee, .order-total {
+.total-amount .subtotal,
+.delivery-fee,
+.order-total {
   display: flex;
   justify-content: space-between;
   color: rgba(69, 69, 69, 1);
@@ -181,19 +186,70 @@
   font-weight: bold;
 }
 
+.success-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
+.success-popup {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  animation: popIn 0.3s ease-out;
+}
 
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.success-popup img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.success-popup h2 {
+  color: #28a745;
+  margin-bottom: 0.5rem;
+}
+
+.success-popup p {
+  color: #666;
+  margin: 0.5rem 0;
+}
 
 @media (max-width: 768px) {
   .payment-content {
     grid-template-columns: 1fr;
   }
-  
+
   .method-selector {
     grid-template-columns: 1fr;
   }
-  
+
   .card-details {
     grid-template-columns: 1fr;
   }
-} 
+}
+
+.loading-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -22,7 +22,9 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
       <div className="header-top">
         <div className="logo-area">
           <p className="logo theme">LOGO</p>
-          <span>Sell on PawnPal</span>
+          <Link to="/seller-signup" className="sell-link">
+            <span>Sell on PawnPal</span>
+          </Link>
         </div>
         <div className="cto">
           <img
@@ -59,23 +61,25 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
             <div className="buttons">
               <button className="btn-search">Search</button>
               {user ? (
-                <div className="user-info">
-                  <Link to="/dashboard" className="profile-link">
-                    <img 
-                      src={user.profilePic} 
-                      alt="Profile" 
+                <Link to="/dashboard" className="user-profile">
+                  <div className="user-info">
+                    <img
+                      src={user.profilePic}
+                      alt="Profile"
                       className="profile-pic"
                     />
-                    <span>Hi, {user.firstName}</span>
-                  </Link>
-                </div>
+                    <span>
+                      Hi,{" "}
+                      {user.fullName ||
+                        user.contact?.split("@")[0] ||
+                        user.contact}
+                    </span>
+                  </div>
+                </Link>
               ) : (
-                <button
-                  className="btn-login"
-                  onClick={() => setShowAuthModal(true)}
-                >
-                  Login
-                </button>
+                <Link to="/signup" className="login-link">
+                  <button className="btn-login">Login</button>
+                </Link>
               )}
             </div>
           </div>
@@ -102,7 +106,9 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
                 <div className="nav-cart">
                   <MdShoppingCart />
                   <p>Cart</p>
-                  {cartItems.length > 0 && <span className="cart-indicator">{cartItems.length}</span>}
+                  {cartItems.length > 0 && (
+                    <span className="cart-indicator">{cartItems.length}</span>
+                  )}
                 </div>
               </Link>
             </div>

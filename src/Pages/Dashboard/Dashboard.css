@@ -62,16 +62,16 @@
   border: none;
   outline: none;
   cursor: pointer;
-  color: #ff0000; 
+  /* color: #ff0000; */
   font-size: 0.9rem;
   padding: 0.5rem 1rem;
-  width: calc(100% - 4rem); 
+  width: calc(100% - 4rem);
   text-align: center;
   transition: all 0.3s ease;
 }
 
 .navigation button:hover {
-  background-color: #fff1f1; 
+  background-color: #fff1f1;
   border-radius: 5px;
 }
 
@@ -99,6 +99,17 @@
   background-color: #f5f5f5;
   border-radius: 5px;
   color: var(--theme-color);
+}
+
+.logout-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.logout-option:hover {
+  color: red;
 }
 
 .seller-profile {
@@ -264,3 +275,25 @@
   flex-direction: column;
   gap: 1rem;
 }
+
+/* Add the seller signup styles */
+.dashboard-content {
+  grid-area: seller / items;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.seller-step {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Copy over the relevant styles from SellerSignup.css */
+.terms-conditions,
+.seller-form,
+.product-upload {
+  /* ... copy the styles from SellerSignup.css ... */
+}
+
+

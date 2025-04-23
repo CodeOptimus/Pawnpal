@@ -6,12 +6,11 @@ import NotFound from "./components/NotFound/NotFound";
 import Cart from "./Pages/Cart/Cart";
 import Products from "./Pages/Products/Products";
 import AuthModal from "./components/AuthModal/AuthModal";
-// import Navbar from "./components/Navbar/Navbar";
 import { UserProvider } from "./context/UserContext";
 import Checkout from "./Pages/Checkout/Checkout";
 import { CartProvider } from "./contexts/CartContext";
 import Payment from "./Pages/Payment/Payment";
-import SignUp from "./Pages/SignUp/SignUp";
+import SignUp from "./Pages/Signup/Signup";
 import SellerSignup from "./Pages/SellerSignup/SellerSignup";
 
 function App() {

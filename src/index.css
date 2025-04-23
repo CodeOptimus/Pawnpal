@@ -9,20 +9,27 @@
 :root {
   --font-family: Inter, sans-serif;
   --line-height: 1.5;
-  --theme-color: #FE6C2C;
+  --theme-color: #fe6c2c;
   --gen-color-1: #000000;
-  --gen-color-2: #FFFFFF;
+  --gen-color-2: #ffffff;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  padding-top: 100px; /* Adjusted to match the new header height */
 }
 
 a {
   text-decoration: none;
 }
-
 
 button {
   cursor: pointer;
@@ -30,7 +37,10 @@ button {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-

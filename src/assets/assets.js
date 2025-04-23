@@ -1,4 +1,5 @@
 // Icon imports
+import Pawnpal from './Pawnpal-logo-cropped.png'
 import cart_icon from './cart-icon.png'
 import searchIcon from './search-icon.png'
 import questionMark from './question-mark.png'
@@ -104,6 +105,7 @@ import payment_mastercard from './Mastercard-icon.png'
 import payment_visa from './visa-icon.png'
 
 export const assets = {
+    Pawnpal,
     cart_icon,
     searchIcon,
     questionMark,

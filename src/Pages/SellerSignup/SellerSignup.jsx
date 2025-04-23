@@ -1,32 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { MdCloudUpload } from "react-icons/md";
+import { MdCloudUpload, MdCheckCircle } from "react-icons/md";
 import "./SellerSignup.css";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 function SellerSignup() {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showUploadSuccess, setShowUploadSuccess] = useState(false);
   const [formData, setFormData] = useState({
-    businessName: "",
-    ownerName: "",
-    email: "",
-    phone: "",
-    address: "",
-    city: "",
-    businessType: "",
-    registrationNumber: "",
-    taxId: "",
-    bankName: "",
-    accountNumber: "",
+    lastName: "",
+    firstName: "",
+    gender: "",
+    dateOfBirth: "",
+    digitalAddress: "",
+    phoneNumber: "",
+    ghanaCardNumber: "",
+    location: "",
+    storeName: "",
     productImage: null,
     productName: "",
-    productDescription: "",
     category: "",
     price: "",
-    condition: "",
-    quantity: "",
   });
+
+  useEffect(() => {
+    // Scroll to top when step changes
+    window.scrollTo(0, 0);
+  }, [step]);
+
+  useEffect(() => {
+    // Simulate content loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -43,7 +55,12 @@ function SellerSignup() {
         ...prev,
         productImage: URL.createObjectURL(file),
       }));
+      setShowUploadSuccess(true);
     }
+  };
+
+  const handleCloseSuccessPopup = () => {
+    setShowUploadSuccess(false);
   };
 
   const renderStep = () => {
@@ -331,9 +348,9 @@ function SellerSignup() {
                   checked={acceptedTerms}
                   onChange={(e) => setAcceptedTerms(e.target.checked)}
                 />
-                <span className="checkmark"></span>By clicking "I Agree" or registering as a seller on PawnPal, you
-                acknowledge that you have read, understood, and accepted these
-                terms and conditions.
+                <span className="checkmark"></span>By clicking "I Agree" or
+                registering as a seller on PawnPal, you acknowledge that you
+                have read, understood, and accepted these terms and conditions.
               </label>
               <button
                 className="next-btn"
@@ -349,75 +366,102 @@ function SellerSignup() {
       case 2:
         return (
           <div className="seller-step seller-form">
-            <h2 className="seller-heading">Seller Information</h2>
+            <h2 className="seller-heading">Want to Sell on Pawnpal?</h2>
+            <p>Enter your details to get going</p>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 setStep(3);
               }}
+              className="seller-details-form"
             >
+              <p>Personal Details</p>
               <div className="form-grid">
                 <div className="seller-form-group">
-                  <label>Business Name</label>
+                  <label>First Name</label>
                   <input
                     type="text"
-                    name="businessName"
-                    value={formData.businessName}
+                    name="firstName"
+                    value={formData.firstName}
                     onChange={handleInputChange}
+                    placeholder="eg. John"
                     required
                   />
                 </div>
                 <div className="seller-form-group">
-                  <label>Owner Name</label>
+                  <label>Last Name</label>
                   <input
                     type="text"
-                    name="ownerName"
-                    value={formData.ownerName}
+                    name="lastName"
+                    value={formData.lastName}
                     onChange={handleInputChange}
+                    placeholder="eg. Doe"
                     required
                   />
                 </div>
                 <div className="seller-form-group">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div className="seller-form-group">
-                  <label>Phone</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div className="seller-form-group">
-                  <label>Business Type</label>
-                  <select
-                    name="businessType"
-                    value={formData.businessType}
-                    onChange={handleInputChange}
-                    required
-                  >
-                    <option value="">Select type</option>
-                    <option value="retail">Retail</option>
-                    <option value="wholesale">Wholesale</option>
-                    <option value="manufacturer">Manufacturer</option>
-                  </select>
-                </div>
-                <div className="seller-form-group">
-                  <label>Registration Number</label>
+                  <label>Gender</label>
                   <input
                     type="text"
-                    name="registrationNumber"
-                    value={formData.registrationNumber}
+                    name="gender"
+                    value={formData.gender}
                     onChange={handleInputChange}
+                    placeholder="eg. Male"
+                    required
+                  />
+                </div>
+                <div className="seller-form-group">
+                  <label>Date of Birth</label>
+                  <input
+                    type="date"
+                    name="dateOfBirth"
+                    value={formData.dateOfBirth}
+                    onChange={handleInputChange}
+                    placeholder="eg. 2000/01/01"
+                    required
+                  />
+                </div>
+                <div className="seller-form-group">
+                  <label>Location</label>
+                  <input
+                    type="text"
+                    name="location"
+                    value={formData.location}
+                    onChange={handleInputChange}
+                    placeholder="eg. Ahoe, Ho"
+                    required
+                  />
+                </div>
+                <div className="seller-form-group">
+                  <label>Digital Address</label>
+                  <input
+                    type="text"
+                    name="digitalAddress"
+                    value={formData.digitalAddress}
+                    onChange={handleInputChange}
+                    placeholder="eg. VC-000-2543-8"
+                    required
+                  />
+                </div>
+                <div className="seller-form-group">
+                  <label>Phone Number</label>
+                  <input
+                    type="number"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                    placeholder={"eg, 0245689456"}
+                    required
+                  />
+                </div>
+                <div className="seller-form-group">
+                  <label>Ghana Card Number</label>
+                  <input
+                    type="text"
+                    name="ghanaCardNumber"
+                    value={formData.ghanaCardNumber}
+                    onChange={handleInputChange}
+                    placeholder={"eg, GHA-73156984-2"}
                     required
                   />
                 </div>
@@ -432,7 +476,7 @@ function SellerSignup() {
       case 3:
         return (
           <div className="seller-step product-upload">
-            <h2>Product Information</h2>
+            <h2 className="seller-heading">Product Information</h2>
             <div className="product-content">
               <div className="image-upload">
                 <input
@@ -461,31 +505,31 @@ function SellerSignup() {
                     name="productName"
                     value={formData.productName}
                     onChange={handleInputChange}
+                    placeholder="eg. Iphone 14 Pro Max"
                     required
                   />
                 </div>
                 <div className="seller-form-group">
-                  <label>Description</label>
-                  <textarea
-                    name="productDescription"
-                    value={formData.productDescription}
+                  <label>Name of Store</label>
+                  <input
+                    type="text"
+                    name="storeName"
+                    value={formData.storeName}
                     onChange={handleInputChange}
+                    placeholder="eg. Node8"
                     required
                   />
                 </div>
                 <div className="seller-form-group">
-                  <label>Category</label>
-                  <select
-                    name="category"
-                    value={formData.category}
+                  <label>Location</label>
+                  <input
+                    type="text"
+                    name="location"
+                    value={formData.location}
                     onChange={handleInputChange}
+                    placeholder="eg. Ahoe, Ho"
                     required
-                  >
-                    <option value="">Select category</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="fashion">Fashion</option>
-                    <option value="home">Home & Garden</option>
-                  </select>
+                  />
                 </div>
                 <div className="seller-form-group">
                   <label>Price</label>
@@ -494,28 +538,21 @@ function SellerSignup() {
                     name="price"
                     value={formData.price}
                     onChange={handleInputChange}
+                    placeholder="eg, 50.00"
                     required
                   />
                 </div>
-                <button
-                  className="submit-btn"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    // Save seller data if needed
-                    const sellerData = {
-                      ...formData,
-                      isSeller: true,
-                    };
-                    localStorage.setItem(
-                      "sellerData",
-                      JSON.stringify(sellerData)
-                    );
-                    // Navigate to the seller dashboard with a specific tab/section
-                    navigate("/dashboard", { state: { activeTab: "sell" } });
-                  }}
-                >
-                  Submit
-                </button>
+
+                <div className="product-details-bottom">
+                  <p className="to-note">
+                    Please make sure you are uploading the right information and
+                    quality images
+                  </p>
+                  <div className="buttons">
+                    <button className="upload-btn">Upload</button>
+                    <button className="cancel-btn">Cancel</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -526,7 +563,24 @@ function SellerSignup() {
     }
   };
 
-  return <div className="seller-signup-container">{renderStep()}</div>;
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
+  return (
+    <div className="seller-signup-container">
+      {renderStep()}
+      {showUploadSuccess && (
+        <div className="upload-success-popup">
+          <MdCheckCircle className="success-icon" />
+          <p>Image uploaded successfully!</p>
+          <button className="close-btn" onClick={handleCloseSuccessPopup}>
+            Close
+          </button>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default SellerSignup;

@@ -21,7 +21,9 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
     <header className="header">
       <div className="header-top">
         <div className="logo-area">
-          <p className="logo theme">LOGO</p>
+          <div className="logo-container">
+            <img src={assets.Pawnpal} alt="Pawnpal-logo" className="logo-img" />
+          </div>
           <Link to="/seller-signup" className="sell-link">
             <span>Sell on PawnPal</span>
           </Link>
@@ -42,9 +44,13 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
       <div className="header-main">
         <div className="container">
           <div className="name">
-            <h2>
-              PAWN <span className="make-orange">PAL</span>
-            </h2>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <img
+                src={assets.Pawnpal}
+                alt="Pawnpal-logo"
+                className="main-logo-img"
+              />
+            </Link>
           </div>
 
           <div className="search-box">

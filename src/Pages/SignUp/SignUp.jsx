@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { MdMarkEmailUnread, MdSms } from "react-icons/md";
 import { assets } from "../../assets/assets";
 import "./SignUp.css";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 function SignUp() {
   const navigate = useNavigate();
   const { login } = useUser();
   const [step, setStep] = useState(1);
   const [contactType, setContactType] = useState("email");
+  const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({
     contact: "",
     password: "",
@@ -23,6 +25,15 @@ function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [otp, setOtp] = useState(["", "", "", ""]);
+
+  useEffect(() => {
+    // Simulate content loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   //   const handleBack = () => {
   //     if (step > 1) {
@@ -271,7 +282,7 @@ function SignUp() {
               </p>
             </form>
             <div className="divider">
-              <span>Or sign in with</span>
+              <span>Or sign up with</span>
             </div>
 
             <div className="social-buttons">
@@ -439,6 +450,10 @@ function SignUp() {
         return null;
     }
   };
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="signup-container">

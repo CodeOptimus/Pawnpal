@@ -3,20 +3,18 @@ import { useNavigate, Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import PropTypes from "prop-types";
 import "./Checkout.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
 import { BsTruck } from "react-icons/bs";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
-
-
-
-function Checkout({ setShowAuthModal, isAuthModalOpen }) {
+function Checkout() {
   const navigate = useNavigate();
   const { cartItems } = useCart();
   const [deliveryMethod, setDeliveryMethod] = useState("pickup");
   const [checkoutItems, setCheckoutItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Get items from localStorage
@@ -26,6 +24,13 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
       return;
     }
     setCheckoutItems(items);
+
+    // Simulate content loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, [navigate]);
 
   // Calculate totals
@@ -45,24 +50,21 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
     setDeliveryMethod(e.target.value);
   };
 
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <>
-      <Navbar
-        setShowAuthModal={setShowAuthModal}
-        isAuthModalOpen={isAuthModalOpen}
-      />
+      <Navbar />
 
       <div className="checkout-container">
-        {/* <div className="back-section">
-          <span onClick={handleBack} className="back-btn">
-            <IoArrowBack className="back-arrow" />
-            Back
-          </span>
-        </div> */}
-
         <div className="top">
-          <span onClick={handleBack} style={{ cursor: "pointer", display: "flex", alignItems: "center"}}>
-          <IoIosArrowBack />
+          <span
+            onClick={handleBack}
+            style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
+          >
+            <IoIosArrowBack />
             Back
           </span>
           <span>Checkout</span>
@@ -93,7 +95,9 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
                 <h3>Item</h3>
                 <div className="item-image">
                   <img src={item.image} alt={item.name} />
-                  <p>{item.name} <br /> <span>{item.storage}</span></p>
+                  <p>
+                    {item.name} <br /> <span>{item.storage}</span>
+                  </p>
                 </div>
               </div>
               <div className="quantity-ordered">
@@ -201,12 +205,17 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
                 <div className="delivery-method">
                   <p className="theme">Delivery Method</p>
                   <span className="delivery-method-info">
-                  <BsTruck size={20}/>
-                  <p> {deliveryMethod === "pickup" ? "Pick Up" : "Doorstep"}</p>
+                    <BsTruck size={20} />
+                    <p>
+                      {" "}
+                      {deliveryMethod === "pickup" ? "Pick Up" : "Doorstep"}
+                    </p>
                   </span>
                   <span className="delivery-method-info">
-                  <IoLocationOutline size={20}/> 
-                  <p>3517 H. Dome Guinness, <br /> Ho, Ghana</p>
+                    <IoLocationOutline size={20} />
+                    <p>
+                      3517 H. Dome Guinness, <br /> Ho, Ghana
+                    </p>
                   </span>
                 </div>
                 <div className="delivery-charges">
@@ -244,10 +253,5 @@ function Checkout({ setShowAuthModal, isAuthModalOpen }) {
     </>
   );
 }
-
-Checkout.propTypes = {
-  setShowAuthModal: PropTypes.func.isRequired,
-  isAuthModalOpen: PropTypes.bool.isRequired,
-};
 
 export default Checkout;

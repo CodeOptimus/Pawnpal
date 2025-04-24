@@ -6,26 +6,42 @@ import Footer from "../../components/Footer/Footer";
 import "./Cart.css";
 import PropTypes from "prop-types";
 import { useCart } from "../../contexts/CartContext";
+import { useState, useEffect } from "react";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
-function Cart({ setShowAuthModal, isAuthModalOpen }) {
+function Cart() {
   const { cartItems, removeFromCart } = useCart();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate content loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSingleCheckout = (item) => {
     // Store single item for checkout
-    localStorage.setItem('checkoutItems', JSON.stringify([item]));
-    navigate('/checkout');
+    localStorage.setItem("checkoutItems", JSON.stringify([item]));
+    navigate("/checkout");
   };
 
   const handleCheckoutAll = () => {
     // Store all items for checkout
-    localStorage.setItem('checkoutItems', JSON.stringify(cartItems));
-    navigate('/checkout');
+    localStorage.setItem("checkoutItems", JSON.stringify(cartItems));
+    navigate("/checkout");
   };
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <>
-      <Navbar setShowAuthModal={setShowAuthModal} isAuthModalOpen={isAuthModalOpen} />
+      <Navbar />
       <div className="item-list">
         <ul>
           <li>
@@ -63,7 +79,7 @@ function Cart({ setShowAuthModal, isAuthModalOpen }) {
           </li>
         </ul>
       </div>
-      
+
       <div className="cart-container">
         {cartItems.length === 0 ? (
           <div className="cart-header">
@@ -86,19 +102,21 @@ function Cart({ setShowAuthModal, isAuthModalOpen }) {
                   </div>
                   <div className="cart-item-details">
                     <div className="item-details">
-                      <h3>{item.name} <br /> <span>{item.storage}</span></h3>
+                      <h3>
+                        {item.name} <br /> <span>{item.storage}</span>
+                      </h3>
                       <div className="item-price">
                         <p>{item.price}</p>
                       </div>
                     </div>
                     <div className="buttons">
-                      <button 
+                      <button
                         className="remove-btn"
                         onClick={() => removeFromCart(item.id)}
                       >
                         Remove
                       </button>
-                      <button 
+                      <button
                         className="checkout-btn"
                         onClick={() => handleSingleCheckout(item)}
                       >
@@ -109,10 +127,7 @@ function Cart({ setShowAuthModal, isAuthModalOpen }) {
                 </div>
               ))}
             </div>
-            <button 
-              onClick={handleCheckoutAll}
-              className="checkout-all-btn"
-            >
+            <button onClick={handleCheckoutAll} className="checkout-all-btn">
               Checkout All Items ({cartItems.length})
             </button>
           </>

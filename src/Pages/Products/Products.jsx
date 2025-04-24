@@ -1,16 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { assets } from "../../assets/assets";
-import PropTypes from "prop-types";
 import { useCart } from "../../contexts/CartContext";
 import "./Products.css";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
-function Products({ setShowAuthModal, isAuthModalOpen }) {
+function Products() {
   const [addedItems, setAddedItems] = useState({});
   const { addToCart } = useCart();
   const [quantities, setQuantities] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate content loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleQuantityChange = (productId, change) => {
     setQuantities((prev) => ({
@@ -30,6 +40,10 @@ function Products({ setShowAuthModal, isAuthModalOpen }) {
       quantity: quantities[product.id] || 1,
     });
   };
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   const products = [
     {
@@ -64,7 +78,6 @@ function Products({ setShowAuthModal, isAuthModalOpen }) {
     },
     {
       id: 6,
-      // image: {assets.iphone13_for_products},
       name: "Iphone 13pro max",
       storage: "8gig Ram & 128Rom",
       price: "4500.00",
@@ -73,10 +86,7 @@ function Products({ setShowAuthModal, isAuthModalOpen }) {
 
   return (
     <>
-      <Navbar
-        setShowAuthModal={setShowAuthModal}
-        isAuthModalOpen={isAuthModalOpen}
-      />
+      <Navbar />
       <div className="products-container">
         <div className="products-header">
           <h1>Phones and Accessories</h1>
@@ -148,10 +158,5 @@ function Products({ setShowAuthModal, isAuthModalOpen }) {
     </>
   );
 }
-
-Products.propTypes = {
-  setShowAuthModal: PropTypes.func.isRequired,
-  isAuthModalOpen: PropTypes.bool.isRequired,
-};
 
 export default Products;

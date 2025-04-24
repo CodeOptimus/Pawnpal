@@ -17,13 +17,27 @@ import "./Dashboard.css";
 import ItemCard from "../../components/ItemCard/ItemCard";
 import PropTypes from "prop-types";
 import { useUser } from "../../context/UserContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LogoutPopup from "../../components/LogoutPopup/LogoutPopup";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
-function Dashboard({ setShowAuthModal, isAuthModalOpen }) {
+function Dashboard() {
   const { user, logout } = useUser();
   const navigate = useNavigate();
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+
+    // Simulate content loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!user) {
     return <Navigate to="/" replace />;
@@ -55,12 +69,13 @@ function Dashboard({ setShowAuthModal, isAuthModalOpen }) {
     setShowLogoutPopup(false);
   };
 
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <>
-      <Navbar
-        setShowAuthModal={setShowAuthModal}
-        isAuthModalOpen={isAuthModalOpen}
-      />
+      <Navbar />
       <div className="dashboard-container">
         <div className="navigation">
           <p>

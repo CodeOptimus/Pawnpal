@@ -1,10 +1,11 @@
 .signup-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   height: 100vh;
   max-width: 40%;
-  margin: 6rem auto;
+  margin: 0 auto;
+  padding-top: 2rem;
 }
 
 /* .signup-step {
@@ -49,7 +50,7 @@
   border: 1px solid var(--theme-color);
 }
 
-.signup-step .form-band button {
+.signup-step .form-band .next-btn {
   width: 100%;
   background-color: var(--theme-color);
   text-align: center;
@@ -91,12 +92,13 @@
 
 .signup-step {
   animation: fadeIn 0.3s ease;
+  margin-top: 0;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(0);
   }
   to {
     opacity: 1;

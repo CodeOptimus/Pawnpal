@@ -83,7 +83,7 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
                   </div>
                 </Link>
               ) : (
-                <Link to="/signup" className="login-link">
+                <Link to="/login" className="login-link">
                   <button className="btn-login">Login</button>
                 </Link>
               )}

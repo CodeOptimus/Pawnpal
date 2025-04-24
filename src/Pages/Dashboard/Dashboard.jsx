@@ -135,16 +135,66 @@ function Dashboard() {
             Logout
           </p>
         </div>
+        <div className="seller-profile">
+          <div className="seller-profile-left">
+            <img src={assets.dashboard_profile} alt="" />
+            <h2>Christopher Doe</h2>
+            <p>Seller</p>
+          </div>
+          <div className="seller-profile-right">
+            <p className="edit-profile">
+              <BiSolidEditAlt /> Edit Profile
+            </p>
+            <p className="coupons">
+              <BiSolidCoupon /> Coupons
+            </p>
+          </div>
+        </div>
 
-        <div className="items-list">
-          {purchasedItems.map((item, index) => (
-            <ItemCard key={index} {...item} />
-          ))}
+        <div className="seller-items-list">
+          <div className="item-and-details">
+            <img src={assets.dashboard_fridge} alt="" />
+            <div className="item-details-info">
+              <p>
+                <span>Item:</span> Table-Top Fridge - Nexus 250 - Silver
+              </p>
+              <p>
+                <span>Seller:</span>Christopher Doe
+              </p>
+              <p>
+                <span>Shop:</span>KK House Electronics
+              </p>
+              <p>
+                <span>Location:</span>Ahoe, Ho
+              </p>
+              <p>
+                <span>Quantity:</span>1
+              </p>
+            </div>
+          </div>
+
+          <div className="buy-details">
+            <p className="bought">Bought</p>
+            <p className="price">GHC 4500.00</p>
+          </div>
         </div>
       </div>
 
       <div className="top-selling-items">
-        <img src={assets.Phone} alt="" />
+        <h2>Top Selling Items</h2>
+        <div className="top-selling-items-list">
+          <img src={assets.xiaomi_phone} alt="" />
+          <img src={assets.hand_phone} alt="" />
+          <img src={assets.xiaomi_phone} alt="" />
+          <img src={assets.hand_phone} alt="" />
+          <img src={assets.xiaomi_phone} alt="" />
+          <img src={assets.hand_phone} alt="" />
+          <img src={assets.xiaomi_phone} alt="" />
+          <img src={assets.hand_phone} alt="" />
+          <img src={assets.xiaomi_phone} alt="" />
+          <img src={assets.hand_phone} alt="" />
+          {/* <img src={assets.xiaomi_phone} alt="" /> */}
+        </div>
       </div>
       <Footer />
 

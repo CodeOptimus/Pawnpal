@@ -63,6 +63,10 @@ function SellerSignup() {
     setShowUploadSuccess(false);
   };
 
+  const handleCancel = () => {
+    navigate("/dashboard");
+  };
+
   const renderStep = () => {
     switch (step) {
       case 1:
@@ -550,7 +554,9 @@ function SellerSignup() {
                   </p>
                   <div className="buttons">
                     <button className="upload-btn">Upload</button>
-                    <button className="cancel-btn">Cancel</button>
+                    <button className="cancel-btn" onClick={handleCancel}>
+                      Cancel
+                    </button>
                   </div>
                 </div>
               </div>

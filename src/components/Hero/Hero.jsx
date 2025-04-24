@@ -22,7 +22,7 @@ function Hero() {
 
   return (
     <>
-      <div className="item-list">
+      <div className="hero-item-list">
         <ul>
           <li>
             <a href="#">Phone & Tablets</a>

@@ -95,7 +95,7 @@ function Products() {
 
         <div className="products-grid">
           {products.map((product) => (
-            <div key={product.id} className="product">
+            <div key={product.id} className="the-product">
               <div className="product-image">
                 <img src={assets.iphone13_for_products} alt="" />
               </div>

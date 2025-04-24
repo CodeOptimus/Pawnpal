@@ -4,10 +4,10 @@ import { useUser } from "../../context/UserContext";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { MdMarkEmailUnread, MdSms } from "react-icons/md";
 import { assets } from "../../assets/assets";
-import "./SignUp.css";
+import "./Login.css";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
-function SignUp() {
+function Login() {
   const navigate = useNavigate();
   const { login } = useUser();
   const [step, setStep] = useState(1);
@@ -256,7 +256,7 @@ function SignUp() {
                 <div className="password-input">
                   <input
                     type={showPassword ? "text" : "password"}
-                    id="password"
+                    name="password"
                     value={formData.password}
                     onChange={handleInputChange}
                     placeholder="Enter your password"
@@ -274,13 +274,35 @@ function SignUp() {
                   </span>
                 </div>
               </div>
-              <button type="submit" className="next-btn">
+              <div className="form-band">
+                <label>Confirm Password</label>
+                <div className="password-input">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    name="confirmPassword"
+                    value={formData.confirmPassword}
+                    onChange={handleInputChange}
+                    placeholder="Confirm your password"
+                    required
+                  />
+                  <span
+                    className="password-toggle"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  >
+                    {showConfirmPassword ? (
+                      <IoEyeOutline size={20} />
+                    ) : (
+                      <IoEyeOffOutline size={20} />
+                    )}
+                  </span>
+                </div>
+              </div>
+
+              <button type="submit" className="submit-button">
                 Sign Up
               </button>
-              <p className="terms-conditions">
-                By continuing you have agreed to PawnPal Terms and Conditions
-              </p>
             </form>
+
             <div className="divider">
               <span>Or sign up with</span>
             </div>
@@ -301,7 +323,7 @@ function SignUp() {
                   textDecoration: "none",
                 }}
               >
-                Login
+                Sign In
               </span>
             </p>
           </div>
@@ -476,4 +498,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default Login;

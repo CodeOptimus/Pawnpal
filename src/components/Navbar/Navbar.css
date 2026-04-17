@@ -11,6 +11,7 @@
   justify-content: space-between;
   background-color: #cbc8c8;
   padding: 0.5rem 3rem;
+  gap: 1rem;
 }
 
 .header .header-top .logo-area {
@@ -46,11 +47,25 @@
   background-color: var(--gen-color-2);
   padding: 1rem 3rem;
   box-shadow: 0px 5px 10px 0px #00000040;
+  gap: 1rem;
+}
+
+.header-main .search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.header-main .search-field {
+  position: relative;
+  flex: 1;
+  max-width: 680px;
 }
 
 .header-main .search-box input {
   height: 41px;
-  width: 665px;
+  width: 100%;
   border: 1px solid #00000080;
   border-radius: 3px;
 }
@@ -63,31 +78,21 @@
   border-radius: 5px;
   color: var(--gen-color-2);
   border: none;
-  display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-size: 0.8rem;
 }
 
+.header-main .search-box .btn-search,
+.btn-login {
+  display: inline-flex;
+}
+
 .header-main .buttons {
-  margin-top: -41px;
-  margin-left: 41.6rem;
   display: flex;
   gap: 1rem;
   align-items: center;
-}
-
-.header-main .container .search-box .search_icon {
-  margin-top: 10px;
-}
-
-.header-main .search-box .btn-search {
-  margin-left: -135px;
-}
-
-.header-main .search-box .btn-login {
-  margin-left: 40px;
 }
 
 .header-main .search-box .search_icon {
@@ -95,11 +100,22 @@
   width: 25px;
   position: absolute;
   margin-left: 10px;
-  margin-top: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .header-main .search-box .search_box {
   padding-left: 40px;
+  padding-right: 12px;
+}
+
+.btn-search--embedded {
+  display: none !important;
+}
+
+.btn-search--desktop {
+  display: inline-flex;
 }
 
 .header-main .help {
@@ -109,28 +125,28 @@
   cursor: pointer;
 }
 
-.header-main .help .help-container {
+.header-actions {
   display: flex;
+  align-items: center;
   gap: 15px;
 }
 
-.header-main .help .help-area {
+.help-area {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.header-main .help .question_mark,
+.question_mark,
 .dropdown_icon {
   height: 18.75px;
   width: 18.75px;
   cursor: pointer;
 }
 
-.header-main .help .help-container .nav-cart {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.cart-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .header .cart {
@@ -203,33 +219,22 @@
     gap: 5px;
   }
 
-  .header-main .search-box {
-    display: flex;
-  }
-
   .header-main .buttons {
-    margin-left: 12.5rem;
-    margin-top: 1rem;
     display: flex;
     align-items: center;
   }
 
   .header-main .container {
     display: flex;
-  }
-
-  .header-main .container .search-box .search_icon {
-    margin-top: 25px;
+    flex-wrap: wrap;
   }
 
   .header-main .search-box input {
     height: 41px;
-    width: 435px;
-    margin-top: 1rem;
+    width: 100%;
   }
 
-  .header-main .help-container {
-    margin-top: 1rem;
+  .header-actions {
     display: flex;
     flex-direction: row;
     gap: 15px;
@@ -237,6 +242,69 @@
 
   .user-info {
     margin-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* top bar: keep only logo + call-to-order */
+  .header-top .sell-link,
+  .header-top .tease {
+    display: none;
+  }
+
+  .header .header-top {
+    padding: 0.5rem 1rem;
+  }
+
+  .header-main .container {
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  /* search: reduce width + embed the button */
+  .header-main .search-box {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .header-main .search-field {
+    max-width: 520px;
+  }
+
+  .btn-search--desktop {
+    display: none !important;
+  }
+
+  .btn-search--embedded {
+    display: inline-flex !important;
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 33px;
+    width: auto;
+    padding: 0 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+  }
+
+  .header-main .search-box .search_box {
+    padding-right: 110px;
+  }
+
+  /* remove Help (including question mark + arrows) on small screens */
+  .help-area {
+    display: none;
+  }
+
+  /* keep buttons from wrapping */
+  .header-main .buttons {
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .btn-login {
+    width: auto;
+    padding: 0 0.75rem;
   }
 }
 

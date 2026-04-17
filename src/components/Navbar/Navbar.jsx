@@ -54,18 +54,23 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
           </div>
 
           <div className="search-box">
-            <img
-              src={assets.searchIcon}
-              alt="search-icon"
-              className="search_icon"
-            />
-            <input
-              type="text"
-              placeholder="Search products..."
-              className="search_box"
-            />
+            <div className="search-field">
+              <img
+                src={assets.searchIcon}
+                alt="search-icon"
+                className="search_icon"
+              />
+              <input
+                type="text"
+                placeholder="Search products..."
+                className="search_box"
+              />
+              <button className="btn-search btn-search--embedded">Search</button>
+            </div>
+
+            <button className="btn-search btn-search--desktop">Search</button>
+
             <div className="buttons">
-              <button className="btn-search">Search</button>
               {user ? (
                 <Link to="/dashboard" className="user-profile">
                   <div className="user-info">
@@ -90,34 +95,30 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
             </div>
           </div>
 
-          <div className="help">
-            <div className="help-container">
-              <div className="help-area">
-                <img
-                  src={assets.questionMark}
-                  alt="question-mark"
-                  className="question_mark"
-                />
-                <p>Help</p>
-                <img
-                  src={assets.dropdownIconBlack}
-                  alt="dropdown icon black"
-                  className="dropdown_icon"
-                />
-              </div>
-              <Link
-                to="/cart"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <div className="nav-cart">
-                  <MdShoppingCart />
-                  <p>Cart</p>
-                  {cartItems.length > 0 && (
-                    <span className="cart-indicator">{cartItems.length}</span>
-                  )}
-                </div>
-              </Link>
+          <div className="header-actions">
+            <div className="help-area">
+              <img
+                src={assets.questionMark}
+                alt="question-mark"
+                className="question_mark"
+              />
+              <p>Help</p>
+              <img
+                src={assets.dropdownIconBlack}
+                alt="dropdown icon black"
+                className="dropdown_icon"
+              />
             </div>
+
+            <Link to="/cart" className="cart-link">
+              <div className="nav-cart" aria-label="Cart">
+                <MdShoppingCart />
+                <p>Cart</p>
+                {cartItems.length > 0 && (
+                  <span className="cart-indicator">{cartItems.length}</span>
+                )}
+              </div>
+            </Link>
           </div>
         </div>
       </div>

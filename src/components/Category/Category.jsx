@@ -42,9 +42,10 @@ const backgroundColors = [
 ];
 
 const themeImages = [
-  assets.Headphones,
-  assets.AppleAirpodsPro,
-  assets.IceWatch
+  { src: assets.Headphones, alt: "headphones" },
+  { src: assets.AppleAirpodsPro, alt: "airpods" },
+  { src: assets.IceWatch, alt: "watch" },
+  { src: assets.toyota_camry, alt: "Toyota Camry" },
 ];
 
 
@@ -120,20 +121,14 @@ function Category() {
               <br />
               Extravaganza!
             </h1>
-            <p>
-              Shop Headset From Jumia Ghana @Lowest Prices - <br />
-              Find Headset Offers & Deals from Jumia with <br />
-              Secure Payment - Fast Delivery - Free Returns.
-            </p>
-            <h2>50% OFF</h2>
           </div>
           <div className="mega-sales-btn">
             <div className="waves">
               <img src={assets.Rings} alt="ring waves" className="waves-img"/>
             </div>
             <img
-              src={themeImages[currentThemeImage]}
-              alt="headphones"
+              src={themeImages[currentThemeImage].src}
+              alt={themeImages[currentThemeImage].alt}
               className="theme-img"
             />
             <div className="start-shopping">

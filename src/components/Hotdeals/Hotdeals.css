@@ -9,22 +9,23 @@
 }
 
 .deal-tails {
-    text-align: center;
-    align-self: center;
+  text-align: center;
+  align-self: center;
+  color: #fff;
 }
 
 .deal-tails h1 {
-    font-size: 2.5rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
 }
 
 .deal-tails p, h1 {
-    color: #fff;
-    line-height: 1.5;
+  color: #fff;
+  line-height: 1.5;
 }
 
 .deal-tails p{
-    color: rgba(255, 255, 255, 0.6);
-    font-size: .8rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: .9rem;
 }
 
 .timer {
@@ -77,4 +78,28 @@
     position: absolute;
     bottom: 1.5rem;
     left: -5rem;
+}
+
+@media (max-width: 768px) {
+  /* responsive mode: no background, text above, image below; remove maze/boards */
+  .hot-deals {
+    background: transparent;
+    height: auto;
+    padding: 0;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .toyota-container .boards {
+    display: none;
+  }
+
+  .toyota img {
+    position: static;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
 }

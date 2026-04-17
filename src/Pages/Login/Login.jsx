@@ -72,8 +72,13 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    const existingUserDataRaw = localStorage.getItem("userData");
+    const existingUserData = existingUserDataRaw
+      ? JSON.parse(existingUserDataRaw)
+      : null;
     const userData = {
       contact: formData.contact,
+      fullName: existingUserData?.fullName || "",
       profilePic: "https://via.placeholder.com/40",
       isAuthenticated: true,
     };

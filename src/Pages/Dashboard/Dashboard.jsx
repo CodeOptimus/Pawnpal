@@ -43,6 +43,12 @@ function Dashboard() {
     return <Navigate to="/" replace />;
   }
 
+  const displayName =
+    user.fullName ||
+    user.contact?.split("@")[0] ||
+    user.contact ||
+    "User";
+
   const purchasedItems = [
     {
       image: assets.dashboard_fridge || "",
@@ -138,7 +144,7 @@ function Dashboard() {
         <div className="seller-profile">
           <div className="seller-profile-left">
             <img src={assets.dashboard_profile} alt="" />
-            <h2>Christopher Doe</h2>
+            <h2>{displayName}</h2>
             <p>Seller</p>
           </div>
           <div className="seller-profile-right">

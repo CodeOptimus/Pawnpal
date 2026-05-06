@@ -190,6 +190,14 @@
 
 .nav-cart {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-cart p {
+  margin: 0;
+  line-height: 1;
 }
 
 .cart-indicator {
@@ -258,16 +266,21 @@
 
   .header-main .container {
     padding: 0.75rem 1rem 1rem;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
   }
 
   /* search: reduce width + embed the button */
   .header-main .search-box {
-    width: 100%;
-    flex: 1 1 100%;
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 0.5rem;
   }
 
   .header-main .search-field {
-    max-width: 520px;
+    max-width: 260px;
+    flex: 0 1 260px;
   }
 
   .btn-search--desktop {
@@ -275,20 +288,11 @@
   }
 
   .btn-search--embedded {
-    display: inline-flex !important;
-    position: absolute;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 33px;
-    width: auto;
-    padding: 0 0.6rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    display: none !important;
   }
 
   .header-main .search-box .search_box {
-    padding-right: 110px;
+    padding-right: 12px;
   }
 
   /* remove Help (including question mark + arrows) on small screens */
@@ -306,10 +310,18 @@
     width: auto;
     padding: 0 0.75rem;
   }
+
+  /* Slightly reduce logo so everything fits one line */
+  .main-logo-img {
+    height: 56px;
+  }
 }
 
 .nav-cart {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .cart-indicator {

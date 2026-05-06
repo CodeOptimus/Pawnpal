@@ -44,6 +44,13 @@
 
 } */
 
+@media (max-width: 768px) {
+  /* Reduce the gap between the item list and the slider */
+  .hero-item-list ul {
+    padding-bottom: 2rem;
+  }
+}
+
 @media (max-width: 1050px) {
   .hero-item-list {
     margin-top: 12rem;

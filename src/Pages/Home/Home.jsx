@@ -7,7 +7,6 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import Sponsors from "../../components/Sponsors/Sponsors";
 import Footer from "../../components/Footer/Footer";
 import PropTypes from "prop-types";
-import { Link } from 'react-router-dom';
 import "./Home.css";
 
 function Home({ setShowAuthModal }) {
@@ -17,7 +16,6 @@ function Home({ setShowAuthModal }) {
       <main className="home-content">
         <Hero />
         <Category />
-        <Link to="/products" className="category-item" />
         <NewArrival />
         <Hotdeals />
         <Testimonials />

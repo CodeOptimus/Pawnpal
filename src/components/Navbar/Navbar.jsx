@@ -1,21 +1,28 @@
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdShoppingCart } from "react-icons/md";
 import PropTypes from "prop-types";
 import { useUser } from "../../context/UserContext";
 import { useCart } from "../../contexts/CartContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Navbar({ setShowAuthModal, isAuthModalOpen }) {
   const { user, logout, isSessionExpired } = useUser();
   const { cartItems } = useCart();
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     if (isSessionExpired) {
       setShowAuthModal(true); // Show login modal when session expires
     }
   }, [isSessionExpired, setShowAuthModal]);
+
+  const handleSearch = () => {
+    const q = searchTerm.trim();
+    navigate(q ? `/products?q=${encodeURIComponent(q)}` : "/products");
+  };
 
   return (
     <header className="header">
@@ -64,11 +71,21 @@ function Navbar({ setShowAuthModal, isAuthModalOpen }) {
                 type="text"
                 placeholder="Search products..."
                 className="search_box"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    handleSearch();
+                  }
+                }}
               />
               <button className="btn-search btn-search--embedded">Search</button>
             </div>
 
-            <button className="btn-search btn-search--desktop">Search</button>
+            <button className="btn-search btn-search--desktop" onClick={handleSearch}>
+              Search
+            </button>
 
             <div className="buttons">
               {user ? (

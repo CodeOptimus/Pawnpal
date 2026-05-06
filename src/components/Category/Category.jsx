@@ -45,7 +45,6 @@ const themeImages = [
   { src: assets.Headphones, alt: "headphones" },
   { src: assets.AppleAirpodsPro, alt: "airpods" },
   { src: assets.IceWatch, alt: "watch" },
-  { src: assets.toyota_camry, alt: "Toyota Camry" },
 ];
 
 

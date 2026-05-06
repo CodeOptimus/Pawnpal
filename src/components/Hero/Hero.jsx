@@ -6,7 +6,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Hero.css";
 
 
-const heroImages = [assets.hero_2, assets.hero_3, assets.hero_4];
+// Removed the car banner from rotation (per request).
+const heroImages = [assets.hero_2, assets.hero_3];
 
 function Hero() {
   // Settings for slider effect

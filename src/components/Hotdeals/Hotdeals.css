@@ -42,11 +42,13 @@
     padding: .6rem;
     width: 60px;
     border-radius: 4px;
+    color: #000;
 }
 
 .timer span {
     font-size: .6rem;
     display: block;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .shop-now-btn {
@@ -70,7 +72,7 @@
 .toyota-container .boards .maze-board {
     position: absolute;
     top: .5rem;
-    right: -8rem;
+    right: -7rem;
     z-index: -1;
 }
 
@@ -88,6 +90,29 @@
     padding: 0;
     flex-direction: column;
     gap: 1.25rem;
+  }
+
+  /* Make headline/subheading readable on white background */
+  .deal-tails {
+    color: #000;
+  }
+
+  .deal-tails h1 {
+    color: #000;
+  }
+
+  .deal-tails p {
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  /* On small screens, use dark timer boxes with light text */
+  .timer h2 {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .timer span {
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .toyota-container .boards {

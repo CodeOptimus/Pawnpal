@@ -1,7 +1,36 @@
 import { assets } from "../../assets/assets";
 import "./Hotdeals.css";
+import { useEffect, useMemo, useState } from "react";
 
 function Hotdeals() {
+  const target = useMemo(() => {
+    // Fixed duration countdown (matches the UI copy style like "20h : 30m : 20s")
+    const DURATION_MS = (20 * 60 * 60 + 30 * 60 + 20) * 1000;
+    return Date.now() + DURATION_MS;
+  }, []);
+
+  const [remainingMs, setRemainingMs] = useState(() =>
+    Math.max(0, target - Date.now())
+  );
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      const next = Math.max(0, target - Date.now());
+      setRemainingMs(next);
+      if (next === 0) clearInterval(id);
+    }, 1000);
+
+    return () => clearInterval(id);
+  }, [target]);
+
+  const hours = Math.floor(remainingMs / 3600000);
+  const minutes = Math.floor((remainingMs % 3600000) / 60000);
+  const seconds = Math.floor((remainingMs % 60000) / 1000);
+
+  const hh = String(hours).padStart(2, "0");
+  const mm = String(minutes).padStart(2, "0");
+  const ss = String(seconds).padStart(2, "0");
+
   return (
     <div className="hot-deals">
       <div className="deal-tails">
@@ -10,13 +39,13 @@ function Hotdeals() {
 
         <div className="timer">
           <h2>
-            10 <span>Hours</span>
+            {hh} <span>Hours</span>
           </h2>
           <h2>
-            30 <span>Minutes</span>
+            {mm} <span>Minutes</span>
           </h2>
           <h2>
-            30 <span>Seconds</span>
+            {ss} <span>Seconds</span>
           </h2>
         </div>
         <a href="#" className="shop-now-btn">

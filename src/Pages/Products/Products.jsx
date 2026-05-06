@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { assets } from "../../assets/assets";
@@ -12,6 +12,8 @@ function Products() {
   const { addToCart } = useCart();
   const [quantities, setQuantities] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [searchParams] = useSearchParams();
+  const q = (searchParams.get("q") || "").trim().toLowerCase();
 
   useEffect(() => {
     // Simulate content loading
@@ -84,6 +86,13 @@ function Products() {
     },
   ];
 
+  const visibleProducts = q
+    ? products.filter((p) => {
+        const haystack = `${p.name} ${p.storage} ${p.price}`.toLowerCase();
+        return haystack.includes(q);
+      })
+    : products;
+
   return (
     <>
       <Navbar />
@@ -94,7 +103,7 @@ function Products() {
         </div>
 
         <div className="products-grid">
-          {products.map((product) => (
+          {visibleProducts.map((product) => (
             <div key={product.id} className="the-product">
               <div className="product-image">
                 <img src={assets.iphone13_for_products} alt="" />

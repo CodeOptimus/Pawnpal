@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useMemo, useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { assets } from "../../assets/assets";
@@ -12,16 +12,52 @@ function Products() {
   const { addToCart } = useCart();
   const [quantities, setQuantities] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
+  const [products, setProducts] = useState([]);
   const [searchParams] = useSearchParams();
   const q = (searchParams.get("q") || "").trim().toLowerCase();
 
   useEffect(() => {
-    // Simulate content loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+    let isMounted = true;
+    const controller = new AbortController();
 
-    return () => clearTimeout(timer);
+    async function loadProducts() {
+      try {
+        setIsLoading(true);
+        setLoadError("");
+
+        const res = await fetch("/api/products.json", {
+          signal: controller.signal,
+          headers: { Accept: "application/json" },
+        });
+
+        if (!res.ok) {
+          throw new Error(`Failed to load products (${res.status})`);
+        }
+
+        const data = await res.json();
+        const nextProducts = Array.isArray(data?.products) ? data.products : [];
+
+        if (isMounted) {
+          setProducts(nextProducts);
+          setIsLoading(false);
+        }
+      } catch (err) {
+        if (controller.signal.aborted) return;
+
+        if (isMounted) {
+          setLoadError(err instanceof Error ? err.message : "Failed to load products");
+          setIsLoading(false);
+        }
+      }
+    }
+
+    loadProducts();
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
   }, []);
 
   const handleQuantityChange = (productId, change) => {
@@ -38,7 +74,7 @@ function Products() {
     }));
     addToCart({
       ...product,
-      image: assets.iphone13_for_products,
+      image: assets[product.imageKey] || assets.iphone13_for_products,
       quantity: quantities[product.id] || 1,
     });
   };
@@ -47,51 +83,14 @@ function Products() {
     return <LoadingSpinner />;
   }
 
-  const products = [
-    {
-      id: 1,
-      name: "Iphone 13pro max",
-      storage: "8gig Ram & 128Rom",
-      price: "4500.00",
-    },
-    {
-      id: 2,
-      name: "Iphone 13pro max",
-      storage: "8gig Ram & 128Rom",
-      price: "4500.00",
-    },
-    {
-      id: 3,
-      name: "Iphone 13pro max",
-      storage: "8gig Ram & 128Rom",
-      price: "4500.00",
-    },
-    {
-      id: 4,
-      name: "Iphone 13pro max",
-      storage: "8gig Ram & 128Rom",
-      price: "4500.00",
-    },
-    {
-      id: 5,
-      name: "Iphone 13pro max",
-      storage: "8gig Ram & 128Rom",
-      price: "4500.00",
-    },
-    {
-      id: 6,
-      name: "Iphone 13pro max",
-      storage: "8gig Ram & 128Rom",
-      price: "4500.00",
-    },
-  ];
+  const visibleProducts = useMemo(() => {
+    if (!q) return products;
 
-  const visibleProducts = q
-    ? products.filter((p) => {
-        const haystack = `${p.name} ${p.storage} ${p.price}`.toLowerCase();
-        return haystack.includes(q);
-      })
-    : products;
+    return products.filter((p) => {
+      const haystack = `${p.name ?? ""} ${p.storage ?? ""} ${p.price ?? ""}`.toLowerCase();
+      return haystack.includes(q);
+    });
+  }, [products, q]);
 
   return (
     <>
@@ -102,11 +101,21 @@ function Products() {
           <p>We give you quality and affordable products</p>
         </div>
 
+        {loadError ? (
+          <div style={{ padding: "16px 0" }}>
+            <p style={{ margin: 0 }}>Couldn&apos;t load products.</p>
+            <p style={{ margin: "6px 0 0", opacity: 0.8 }}>{loadError}</p>
+          </div>
+        ) : null}
+
         <div className="products-grid">
           {visibleProducts.map((product) => (
             <div key={product.id} className="the-product">
               <div className="product-image">
-                <img src={assets.iphone13_for_products} alt="" />
+                <img
+                  src={assets[product.imageKey] || assets.iphone13_for_products}
+                  alt={product.name || "Product image"}
+                />
               </div>
               <div className="product-details">
                 <div className="top">
@@ -117,12 +126,18 @@ function Products() {
                     </h2>
                     <p className="storage-details">{product.storage}</p>
                   </div>
-                  <div className="price">GHC {product.price}</div>
+                  <div className="price">
+                    {(product.currency || "GHC") + " "}
+                    {product.price}
+                  </div>
                 </div>
 
                 <div className="bottom">
                   <div className="review">
-                    <img src={assets.stars} alt="" />
+                    <img
+                      src={assets[product.ratingImageKey] || assets.stars}
+                      alt="Rating"
+                    />
                   </div>
                   <div className="product-actions">
                     {!addedItems[product.id] ? (

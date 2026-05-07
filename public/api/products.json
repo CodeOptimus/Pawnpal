@@ -1,0 +1,65 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 13 Pro Max",
+      "storage": "8GB RAM & 128GB ROM",
+      "price": "4500.00",
+      "currency": "GHC",
+      "imageKey": "iphone13_for_products",
+      "ratingImageKey": "stars",
+      "tags": ["phones", "accessories"]
+    },
+    {
+      "id": 2,
+      "name": "Xiaomi Smartphone",
+      "storage": "6GB RAM & 128GB ROM",
+      "price": "2800.00",
+      "currency": "GHC",
+      "imageKey": "xiaomi_phone",
+      "ratingImageKey": "stars",
+      "tags": ["phones"]
+    },
+    {
+      "id": 3,
+      "name": "Infinix Smartphone",
+      "storage": "8GB RAM & 256GB ROM",
+      "price": "2200.00",
+      "currency": "GHC",
+      "imageKey": "InfinixPhone",
+      "ratingImageKey": "stars",
+      "tags": ["phones"]
+    },
+    {
+      "id": 4,
+      "name": "Wireless Headphones",
+      "storage": "Noise cancelling",
+      "price": "350.00",
+      "currency": "GHC",
+      "imageKey": "Headphones",
+      "ratingImageKey": "stars",
+      "tags": ["accessories", "electronics"]
+    },
+    {
+      "id": 5,
+      "name": "Smart Watch",
+      "storage": "Fitness & notifications",
+      "price": "500.00",
+      "currency": "GHC",
+      "imageKey": "Watch",
+      "ratingImageKey": "stars",
+      "tags": ["watches", "accessories"]
+    },
+    {
+      "id": 6,
+      "name": "Laptop",
+      "storage": "16GB RAM & 512GB SSD",
+      "price": "6200.00",
+      "currency": "GHC",
+      "imageKey": "Laptop",
+      "ratingImageKey": "stars",
+      "tags": ["computers"]
+    }
+  ]
+}
+

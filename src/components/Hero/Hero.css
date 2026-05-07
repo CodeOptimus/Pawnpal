@@ -22,6 +22,7 @@
   text-decoration: none;
   color: var(--text-color);
   transition: color 0.3s;
+  white-space: nowrap;
 }
 
 .hero-item-list ul li:hover {
@@ -44,21 +45,43 @@
 
 } */
 
-@media (max-width: 768px) {
-  /* Reduce the gap between the item list and the slider */
-  .hero-item-list ul {
-    padding-bottom: 2rem;
-  }
-}
-
 @media (max-width: 1050px) {
   .hero-item-list {
-    margin-top: 12rem;
+    margin-top: 8rem;
     max-width: 90%;
   }
 
   .hero-item-list ul {
-    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 24px;
+    padding: 0.75rem 1.25rem 3rem 1.25rem;
+  }
+
+  .hero-item-list ul li a {
+    font-size: 0.95rem;
   }
   
+}
+
+@media (max-width: 768px) {
+  /* Reduce the gap between the navbar and hero on small screens */
+  .hero-item-list {
+    margin-top: 6rem;
+  }
+
+  /* Reduce the gap between the item list and the slider */
+  .hero-item-list ul {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    padding: 0.75rem 1rem 2rem 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-item-list ul li a {
+    font-size: 0.85rem;
+  }
 }
